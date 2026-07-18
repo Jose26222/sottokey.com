@@ -30,8 +30,9 @@ export default function Home() {
               If you&apos;re not paying,
               <br />
               you&apos;re the product.
-              <br />
-              <span>We&apos;d rather just charge you.</span>
+              <span>
+                We&apos;d rather take a few bucks once than your privacy forever.
+              </span>
             </h1>
             <p className="home-hero__lede">
               No ads. No account. No analytics. No internet permission at

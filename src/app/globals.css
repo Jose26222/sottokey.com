@@ -685,7 +685,12 @@ p {
 }
 
 .home-hero h1 span {
+  display: block;
+  margin-top: 0.16em;
   color: var(--ink-300);
+  font-size: 0.68em;
+  letter-spacing: -0.04em;
+  line-height: 1.02;
 }
 
 .home-hero__lede {
@@ -4149,7 +4154,7 @@ p {
   }
 
   .home-hero h1 {
-    font-size: var(--type-display-xl);
+    font-size: clamp(41px, 10.5vw, 45px);
   }
 
   .home-hero__lede {
