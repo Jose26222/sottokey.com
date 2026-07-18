@@ -2,11 +2,12 @@
   "name": "sottokey-web",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build && rm -rf dist && mv out dist",
-    "start": "node scripts/serve-static.mjs dist",
-    "start:test": "HOSTNAME=127.0.0.1 PORT=3100 node scripts/serve-static.mjs dist",
+    "dev": "vinext dev",
+    "build": "vinext build && mkdir -p dist/.openai && cp .openai/hosting.json dist/.openai/hosting.json",
+    "start": "vinext start",
+    "start:test": "HOST=127.0.0.1 PORT=3100 vinext start",
     "lint": "eslint .",
     "pretest": "npm run build",
     "test": "playwright test",
@@ -27,9 +28,14 @@
     "@types/node": "24.10.1",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "^6.0.3",
+    "@vitejs/plugin-rsc": "^0.5.28",
     "eslint": "9.39.2",
     "eslint-config-next": "16.2.10",
-    "typescript": "5.9.3"
+    "react-server-dom-webpack": "^19.2.7",
+    "typescript": "5.9.3",
+    "vinext": "^1.0.0-beta.2",
+    "vite": "^8.1.5"
   },
   "overrides": {
     "postcss": "8.5.10"
