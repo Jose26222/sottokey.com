@@ -8,17 +8,17 @@ const items = [
   {
     icon: ServerOff,
     title: "No internet permission",
-    copy: "The Android production build cannot send your typing to a server.",
+    copy: "The production app has no permission to open a network socket.",
   },
   {
     icon: CheckCheck,
-    title: "Every edit stays visible",
-    copy: "Insertions and deletions appear before SottoKey replaces any text.",
+    title: "You keep the final word",
+    copy: "Every proposed rewrite waits in a visible diff for your approval.",
   },
   {
     icon: Keyboard,
-    title: "A complete keyboard",
-    copy: "Typing, emoji, clipboard, text editing, and rewrite share one surface.",
+    title: "No account behind it",
+    copy: "No sign-in, analytics SDK, cloud model, or remote logs.",
   },
 ];
 

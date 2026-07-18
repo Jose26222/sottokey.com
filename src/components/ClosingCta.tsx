@@ -9,14 +9,14 @@ export function ClosingCta() {
         <i />
         <i />
       </div>
-      <p className="eyebrow">READY WHEN YOUR SENTENCE ISN&apos;T</p>
+      <p className="eyebrow">KEEP THE CLOUD OUT OF THE CONVERSATION</p>
       <h2>
-        Write where you already write.
+        Your keyboard sees enough.
         <br />
-        Keep the final word.
+        It doesn&apos;t need a network.
       </h2>
       <p>
-        Fix the wording, check the change, and carry on typing.
+        Write, revise, and decide on your phone.
       </p>
       <div className="button-row">
         <Link href="/demo" className="button button--light">

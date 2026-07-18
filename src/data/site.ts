@@ -44,19 +44,19 @@ export const liveDemo = {
     {
       id: "write",
       label: "Write",
-      kicker: "Start in the app you already use.",
+      kicker: "Start with the thought, not the polish.",
       ...productMedia.keyboard,
     },
     {
       id: "choose",
       label: "Choose",
-      kicker: "Choose Fix, Professional, or Casual.",
+      kicker: "Fix the error or change the tone.",
       ...productMedia.rewriteIdle,
     },
     {
       id: "review",
       label: "Review",
-      kicker: "Check every insertion and deletion.",
+      kicker: "Compare the edit with your original.",
       ...productMedia.rewriteDiff,
     },
   ],
@@ -66,17 +66,17 @@ export const productSurfaces = [
   {
     ...productMedia.keyboard,
     label: "Type where you are",
-    detail: "SottoKey working inside a standard Android app.",
+    detail: "Stay in the message, note, form, or document you already opened.",
   },
   {
     ...productMedia.rewriteIdle,
     label: "Choose your edit",
-    detail: "Fix, Professional, and Casual each have a clear purpose.",
+    detail: "Fix mistakes, raise the tone, or make the wording more relaxed.",
   },
   {
     ...productMedia.rewriteDiff,
     label: "Review the difference",
-    detail: "A measured result from the installed model, captured on the phone.",
+    detail: "Compare every insertion and deletion before you replace the text.",
   },
   {
     ...productMedia.textEditing,

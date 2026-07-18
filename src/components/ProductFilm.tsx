@@ -36,12 +36,16 @@ export function ProductFilm() {
           type="button"
           onClick={() => setPlaying((value) => !value)}
           className="product-film__toggle"
-          aria-label={playing ? "Pause product film" : "Play product film"}
+          aria-label={playing ? "Pause keyboard tour" : "Play keyboard tour"}
         >
           {playing ? <Pause aria-hidden="true" /> : <Play aria-hidden="true" />}
         </button>
       </div>
-      <div className="product-film__timeline" role="tablist" aria-label="Product surfaces">
+      <div
+        className="product-film__timeline"
+        role="tablist"
+        aria-label="Keyboard tools"
+      >
         {productSurfaces.map((item, itemIndex) => (
           <button
             type="button"

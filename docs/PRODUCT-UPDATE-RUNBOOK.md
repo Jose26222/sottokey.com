@@ -34,6 +34,7 @@ Keep updates inside these boundaries:
 | App, model, release, and performance status | `src/data/product-status.ts` | Change facts here before changing copy |
 | Google Play destination and availability | `productStatus.googlePlay` in `src/data/product-status.ts` | Keep `href` null until the verified public listing URL is supplied |
 | Published device media and demo order | `productMedia`, `liveDemo`, and `productSurfaces` in `src/data/site.ts` | Components must not hard-code product image paths |
+| Competitive privacy framing | `docs/COMPETITIVE-PRIVACY-RESEARCH.md` | Use current first-party sources; do not generalize one product's optional behavior to its entire category |
 | Raw and derived media provenance | `docs/ASSET-MANIFEST.md` | Record raw and WebP hashes together |
 | Phone presentation | `src/components/DeviceFrame.tsx` | Keep one hardware frame and the 1080:2340 screen contract |
 | Visual language and responsive behavior | `src/app/globals.css` | Reuse existing tokens and component classes before adding variants |

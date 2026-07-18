@@ -25,22 +25,23 @@ export default function Home() {
         <div className="home-hero__grain" />
         <div className="home-hero__inner">
           <div className="home-hero__content">
-            <p className="eyebrow">PRIVATE ANDROID KEYBOARD · DEVICE BETA</p>
+            <p className="eyebrow">PRIVATE REWRITING · NO INTERNET PERMISSION</p>
             <h1>
               Rewrite your words.
               <br />
               <span>Keep them yours.</span>
             </h1>
             <p className="home-hero__lede">
-              Fix grammar or change tone in the app you are already using.
-              SottoKey shows every change and waits for your approval.
+              Your keyboard sits inside every message, search, note, and form.
+              SottoKey fixes grammar and tone on your phone, with no account,
+              analytics, or network permission.
             </p>
             <div className="button-row">
               <Link href="/demo" className="button button--light">
-                See how it works <ArrowRight aria-hidden="true" />
+                See SottoKey work <ArrowRight aria-hidden="true" />
               </Link>
-              <Link href="/download" className="button button--ghost">
-                Google Play status
+              <Link href="/privacy" className="button button--ghost">
+                Why privacy is different
               </Link>
             </div>
           </div>
@@ -48,7 +49,7 @@ export default function Home() {
           <div className="home-hero__stage">
             <div className="home-hero__capture-badge">
               <span />
-              Real Android screen · app {productStatus.app.version}
+              SottoKey for Android
             </div>
             <DeviceFrame
               src={productMedia.keyboard.src}
@@ -57,13 +58,13 @@ export default function Home() {
               priority
             />
             <div className="home-hero__capture-meta">
-              <strong>{productStatus.app.state}</strong>
-              <span>Captured {productStatus.app.capturedAt}</span>
+              <strong>Rewrite on your phone</strong>
+              <span>Review before replacing</span>
             </div>
           </div>
         </div>
         <a href="#proof" className="home-hero__scroll">
-          <span>Why SottoKey</span>
+          <span>The privacy difference</span>
           <ArrowDown aria-hidden="true" />
         </a>
       </section>
@@ -75,12 +76,12 @@ export default function Home() {
       <section className="demo-section section section--dark">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">THE CORE INTERACTION</p>
-            <h2>Edit without breaking your flow.</h2>
+            <p className="eyebrow">WRITE. REVISE. DECIDE.</p>
+            <h2>Make the sentence fit the moment.</h2>
           </div>
           <p>
-            Follow one measured correction from the original text to the final
-            review.
+            Fix the typo, raise the tone, or loosen the wording without leaving
+            the app or handing the draft to a server.
           </p>
         </div>
         <GuidedDemo />
@@ -90,17 +91,19 @@ export default function Home() {
         <PrivacyPath />
         <div className="privacy-cinema__copy">
           <div>
-            <p className="eyebrow">PRIVACY BY CONSTRUCTION</p>
-            <h2>Your sentence stays on your phone.</h2>
+            <p className="eyebrow">THE KEYBOARD IS ALREADY IN THE CONVERSATION</p>
+            <h2>It should have nowhere else to go.</h2>
           </div>
           <div>
             <p>
-              The Android production build requests no INTERNET permission.
-              The model, review, and final edit all happen inside the device.
+              SottoKey&apos;s production manifest requests no INTERNET
+              permission. Your text still goes where you put it—the app you are
+              typing in—not to a SottoKey server.
             </p>
             <div className="text-links">
               <Link href="/proof">
-                Inspect the Android proof <ChevronRight aria-hidden="true" />
+                See what the permission removes{" "}
+                <ChevronRight aria-hidden="true" />
               </Link>
             </div>
           </div>
@@ -110,11 +113,12 @@ export default function Home() {
       <section className="feature-editorial section section--paper">
         <div className="section-heading section-heading--paper">
           <div>
-            <p className="eyebrow">MORE THAN A REWRITE BUTTON</p>
-            <h2>A full Android keyboard, with rewriting built in.</h2>
+            <p className="eyebrow">PRIVACY WITHOUT A LESSER KEYBOARD</p>
+            <h2>Everything you expect. One thing you don&apos;t.</h2>
           </div>
           <p>
-            Type, revise, and review without moving your text into another app.
+            Everyday keyboard tools do not become optional just because privacy
+            matters.
           </p>
         </div>
         <div className="feature-editorial__grid">
@@ -141,12 +145,12 @@ export default function Home() {
       <section className="product-film-section section section--dark">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">CAPTURED ON ANDROID</p>
-            <h2>The working product, one surface at a time.</h2>
+            <p className="eyebrow">YOUR EVERYDAY KEYBOARD</p>
+            <h2>Built for more than the careful sentences.</h2>
           </div>
           <p>
-            Pause anywhere to inspect typing, rewriting, review, editing,
-            clipboard tools, and emoji.
+            Autocorrect, editing, clips, undo, emoji, and bilingual typing stay
+            close at hand.
           </p>
         </div>
         <ProductFilm />
@@ -155,8 +159,8 @@ export default function Home() {
       <section className="evidence section section--paper">
         <div className="section-heading section-heading--paper">
           <div>
-            <p className="eyebrow">MEASURED ON REAL HARDWARE</p>
-            <h2>Measured on the phone, not projected.</h2>
+            <p className="eyebrow">LOCAL DOESN&apos;T HAVE TO FEEL SLOW</p>
+            <h2>The median rewrite took {releaseFacts.p50}.</h2>
           </div>
           <p>
             Results from the installed model on one Snapdragon 855 test device,

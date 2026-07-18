@@ -1,8 +1,8 @@
 "use client";
 
-import { ShieldCheck } from "lucide-react";
+import { WifiOff } from "lucide-react";
 import { useMemo, useState } from "react";
-import { liveDemo, productStatus } from "@/data/site";
+import { liveDemo } from "@/data/site";
 import { DeviceFrame } from "./DeviceFrame";
 
 export function GuidedDemo({ compact = false }: { compact?: boolean }) {
@@ -18,12 +18,12 @@ export function GuidedDemo({ compact = false }: { compact?: boolean }) {
     <div className={`guided-demo ${compact ? "guided-demo--compact" : ""}`}>
       <div className="guided-demo__controls">
         <div>
-          <p className="eyebrow">CAPTURED ON ANDROID</p>
-          <h2>One correction. The whole decision.</h2>
+          <p className="eyebrow">ROUGH IN. READY OUT.</p>
+          <h2>Fix the line. Keep the decision.</h2>
           <p className="guided-demo__lede">
-            These are real screens from the current device build. Choose a step
-            to see where the edit begins, how the mode is chosen, and what you
-            review before accepting it.
+            Write as you normally would. Choose Fix, Professional, or Casual.
+            SottoKey marks the difference and leaves your original in place
+            until you accept.
           </p>
         </div>
 
@@ -50,7 +50,7 @@ export function GuidedDemo({ compact = false }: { compact?: boolean }) {
         </div>
 
         <div className="demo-transcript">
-          <span>MEASURED EXAMPLE</span>
+          <span>BEFORE / AFTER</span>
           <p>
             <del>teh</del>
             <ins>The</ins> meeting got moved to 3pm<ins>.</ins>
@@ -58,13 +58,13 @@ export function GuidedDemo({ compact = false }: { compact?: boolean }) {
         </div>
 
         <div className="demo-provenance">
-          <ShieldCheck aria-hidden="true" />
+          <WifiOff aria-hidden="true" />
           <div>
-            <strong>{productStatus.installedModel.state}</strong>
-            <span>{liveDemo.model}</span>
+            <strong>Rewritten on your phone</strong>
+            <span>No cloud request. No account.</span>
             <small>
-              Captured {liveDemo.capturedAt}. This example does not predict the
-              result for other text.
+              Results vary. Your original stays in place until you accept the
+              edit.
             </small>
           </div>
         </div>
@@ -74,7 +74,7 @@ export function GuidedDemo({ compact = false }: { compact?: boolean }) {
         <div className="demo-live-stage__light" aria-hidden="true" />
         <div className="demo-live-stage__badge">
           <span />
-          Device capture · app {productStatus.app.version}
+          Fix · On device
         </div>
         <DeviceFrame
           src={active.src}
@@ -84,7 +84,7 @@ export function GuidedDemo({ compact = false }: { compact?: boolean }) {
         />
         <div className="demo-live-stage__meta">
           <span>{active.label}</span>
-          <span>{productStatus.app.captureDevice}</span>
+          <span>Your choice</span>
         </div>
       </div>
     </div>

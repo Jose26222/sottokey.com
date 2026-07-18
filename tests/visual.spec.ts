@@ -77,10 +77,24 @@ test("guided demo switches through captured device states", async ({ page }) => 
     sequence.getByRole("button").filter({ hasText: "Write" }),
   ).toBeVisible();
   await expect(
-    page.getByText("This example does not predict the result for other text.", {
+    page.getByText("Your original stays in place until you accept the edit.", {
       exact: false,
     }),
   ).toBeVisible();
+});
+
+test("customer demo leads with product value, not artifact construction", async ({
+  page,
+}) => {
+  await page.goto("/demo");
+
+  await expect(
+    page.getByRole("heading", { name: "Make the change. See the change." }),
+  ).toBeVisible();
+  await expect(page.getByText("No cloud rewrite · No account")).toBeVisible();
+  await expect(page.locator("body")).not.toContainText(
+    /captured product demo|how this demo works|contact sheet|record the current app|device session|connected phone|reconstructed interface/i,
+  );
 });
 
 test("published product media preserves device geometry and budget", async ({
@@ -187,6 +201,12 @@ test("capture visual review set", async ({ page }, testInfo) => {
   await warmLazyMedia(page);
   await page.screenshot({
     path: `/tmp/sottokey-review/demo-${isMobile ? "mobile" : "desktop"}.png`,
+    fullPage: true,
+  });
+  await page.goto("/features");
+  await warmLazyMedia(page);
+  await page.screenshot({
+    path: `/tmp/sottokey-review/features-${isMobile ? "mobile" : "desktop"}.png`,
     fullPage: true,
   });
 });

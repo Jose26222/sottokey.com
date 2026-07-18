@@ -30,6 +30,8 @@ horizontal overflow, and produces visual-review captures in
 - Website claim ledger: `docs/CLAIM-LEDGER.md`
 - Generated and captured media provenance: `docs/ASSET-MANIFEST.md`
 - App/model/site synchronization: `docs/PRODUCT-UPDATE-RUNBOOK.md`
+- Official competitive privacy research:
+  `docs/COMPETITIVE-PRIVACY-RESEARCH.md`
 - Deployment binding: `.openai/hosting.json`
 
 `docs/PRODUCT-UPDATE-RUNBOOK.md` also defines the central media registry,

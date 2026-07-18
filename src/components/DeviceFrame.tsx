@@ -23,6 +23,8 @@ export function DeviceFrame({
           height={2340}
           sizes="(max-width: 700px) 72vw, 340px"
           priority={priority}
+          loading={priority ? "eager" : "lazy"}
+          fetchPriority={priority ? "high" : "auto"}
         />
       </div>
       <span className="device-frame__button device-frame__button--one" />

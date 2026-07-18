@@ -65,15 +65,15 @@ export default function FeaturesPage() {
   return (
     <>
       <PageHero
-        eyebrow="THE FULL KEYBOARD"
+        eyebrow="PRIVACY WITHOUT THE TRADE-OFF"
         title={
           <>
-            Built to type.
+            Private by design.
             <br />
-            Designed to revise.
+            Useful by habit.
           </>
         }
-        body="Rewriting is one part of SottoKey. The rest is the keyboard you use for ordinary typing: corrections, emoji, cursor movement, clipboard work, and the small adjustments that make it feel like yours."
+        body="No INTERNET permission matters only if you keep the keyboard enabled. SottoKey pairs that structural privacy with the corrections, editing tools, layouts, and small comforts you use all day."
       />
 
       <section className="feature-chapters section section--paper">
@@ -95,6 +95,7 @@ export default function FeaturesPage() {
               <DeviceFrame
                 src={productSurfaces[index].src}
                 alt={productSurfaces[index].alt}
+                priority
               />
               <span>0{index + 1}</span>
             </div>
