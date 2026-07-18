@@ -1,30 +1,24 @@
 import {
   CheckCheck,
-  Eye,
+  Keyboard,
   ServerOff,
-  UserRoundX,
 } from "lucide-react";
 
 const items = [
   {
     icon: ServerOff,
     title: "No internet permission",
-    copy: "The release APK has no Android permission to open the network.",
-  },
-  {
-    icon: Eye,
-    title: "On-device model",
-    copy: "Rewrites are generated inside the keyboard runtime on your phone.",
+    copy: "Android gives the release app no route to the network.",
   },
   {
     icon: CheckCheck,
-    title: "Preview every change",
-    copy: "Nothing replaces your sentence until you accept the visible diff.",
+    title: "You approve every edit",
+    copy: "A visible diff appears before anything replaces your sentence.",
   },
   {
-    icon: UserRoundX,
-    title: "No account or telemetry",
-    copy: "No identity, ads, analytics SDK, cloud log, or remote model call.",
+    icon: Keyboard,
+    title: "A keyboard first",
+    copy: "Typing, emoji, clipboard, editing, and rewrite in one surface.",
   },
 ];
 

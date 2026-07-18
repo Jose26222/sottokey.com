@@ -32,9 +32,9 @@ export const metadata: Metadata = {
       "A private Android keyboard with on-device rewriting and no internet permission.",
     images: [
       {
-        url: "/studio/hero-instrument.png",
-        width: 1536,
-        height: 1024,
+        url: "/product/live-rewrite-diff.webp",
+        width: 1080,
+        height: 2340,
         alt: "SottoKey private Android keyboard product",
       },
     ],
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     title: "SottoKey — Private AI Keyboard",
     description:
       "On-device rewriting. Visible diffs. No internet permission.",
-    images: ["/studio/hero-instrument.png"],
+    images: ["/product/live-rewrite-diff.webp"],
   },
   icons: {
     icon: "/icon.svg",

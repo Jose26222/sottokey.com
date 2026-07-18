@@ -57,22 +57,24 @@ for (const route of routes) {
   });
 }
 
-test("guided demo switches modes and accepts an edit", async ({ page }) => {
+test("guided demo switches through live device states", async ({ page }) => {
   await page.goto("/demo");
-  const professional = page
-    .getByRole("group", { name: "Rewrite examples" })
+  const sequence = page.getByRole("group", { name: "Correction sequence" });
+  const review = sequence
     .getByRole("button")
-    .filter({ hasText: "Professional" });
-  await professional.click();
-  await expect(page.getByText("Revising on this device…")).toBeVisible();
-  await expect(professional).toHaveAttribute("aria-pressed", "true");
-  await expect(page.locator(".rewrite-card__diff ins").filter({ hasText: "I'm" })).toBeVisible({
-    timeout: 3_000,
-  });
-  await page.getByRole("button", { name: "Accept edit" }).click();
-  await expect(page.getByText("Edit accepted.")).toBeVisible();
-  await expect(page.locator(".demo-composer p")).toHaveText(
-    "I ate lunch late, so I'm a bit tired. I'll finish the report by 5.",
+    .filter({ hasText: "Review" });
+  await review.click();
+  await expect(review).toHaveAttribute("aria-pressed", "true");
+  await expect(
+    page.getByRole("img", {
+      name: "SottoKey showing the installed model's real correction as a visible diff",
+    }),
+  ).toBeVisible();
+
+  await expect(
+    sequence.getByRole("button").filter({ hasText: "Write" }),
+  ).toBeVisible();
+  await expect(page.getByText("A replacement model is still in evaluation.")).toBeVisible(
   );
 });
 
@@ -88,7 +90,7 @@ test("mobile navigation exposes every core route", async ({ page }, testInfo) =>
     mobileNavigation.getByRole("link", { name: /Privacy/, exact: false }),
   ).toBeVisible();
   await expect(
-    mobileNavigation.getByRole("link", { name: "Get SottoKey", exact: true }),
+    mobileNavigation.getByRole("link", { name: "Android status", exact: true }),
   ).toBeVisible();
 });
 

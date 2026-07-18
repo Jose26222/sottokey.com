@@ -10,7 +10,11 @@ import {
 } from "lucide-react";
 import { BrandMark } from "@/components/BrandMark";
 import { PageHero } from "@/components/PageHero";
-import { productSurfaces, releaseFacts } from "@/data/site";
+import {
+  productStatus,
+  productSurfaces,
+  releaseFacts,
+} from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Press Kit",
@@ -30,7 +34,7 @@ export default function PressPage() {
             and product story.
           </>
         }
-        body="Approved product descriptions, current release facts, original studio assets, and unmodified Android screenshots for editorial coverage."
+        body="Approved descriptions, versioned app and model facts, and current Android product captures for editorial coverage."
         aside={
           <div className="hero-proof-note">
             <FileText aria-hidden="true" />
@@ -62,12 +66,16 @@ export default function PressPage() {
               <dd>Tools / Keyboard</dd>
             </div>
             <div>
-              <dt>Current source</dt>
+              <dt>Current device UI</dt>
               <dd>v{releaseFacts.appVersion}</dd>
             </div>
             <div>
               <dt>Model</dt>
               <dd>{releaseFacts.model}</dd>
+            </div>
+            <div>
+              <dt>Next model</dt>
+              <dd>{productStatus.nextModel.state}</dd>
             </div>
             <div>
               <dt>Network permission</dt>
@@ -111,58 +119,6 @@ export default function PressPage() {
         </div>
       </section>
 
-      <section className="press-renders section section--paper">
-        <div className="section-heading section-heading--paper">
-          <div>
-            <p className="eyebrow">STUDIO RENDERS</p>
-            <h2>Original campaign assets.</h2>
-          </div>
-          <p>
-            AI-assisted studio concepts, art-directed for SottoKey. Product UI
-            should be sourced from the real screenshots below.
-          </p>
-        </div>
-        <div className="press-renders__grid">
-          {[
-            [
-              "/studio/hero-instrument.webp",
-              "Hero instrument",
-              "Wide campaign render",
-            ],
-            [
-              "/studio/keycap-macro.webp",
-              "Three-dot keycap",
-              "Macro material render",
-            ],
-            [
-              "/studio/privacy-cutaway.webp",
-              "Privacy cutaway",
-              "Exploded architecture render",
-            ],
-          ].map(([src, label, description]) => (
-            <figure key={label}>
-              <div>
-                <Image
-                  src={src}
-                  alt={label}
-                  fill
-                  sizes="(max-width: 700px) 100vw, 50vw"
-                />
-              </div>
-              <figcaption>
-                <div>
-                  <strong>{label}</strong>
-                  <span>{description}</span>
-                </div>
-                <a href={src} download aria-label={`Download ${label}`}>
-                  <ArrowDownToLine aria-hidden="true" />
-                </a>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
-      </section>
-
       <section className="press-screens section section--paper">
         <div className="section-heading section-heading--paper">
           <div>
@@ -170,8 +126,9 @@ export default function PressPage() {
             <h2>Captured from the working Android app.</h2>
           </div>
           <p>
-            These frames may be cropped but should not be reconstructed,
-            recolored, or combined with model output from another system.
+            Every screen reflects the 0.4.0 device UI. The rewrite frame is
+            explicitly tied to the installed v3 evidence model, not the model
+            still in evaluation.
           </p>
         </div>
         <div className="press-screens__grid">

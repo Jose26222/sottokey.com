@@ -9,19 +9,18 @@ export function ClosingCta() {
         <i />
         <i />
       </div>
-      <p className="eyebrow">PRIVATE BY CONSTRUCTION</p>
+      <p className="eyebrow">READY WHEN YOUR SENTENCE ISN&apos;T</p>
       <h2>
-        Your keyboard sees everything.
+        Write where you already write.
         <br />
-        This one cannot send it anywhere.
+        Keep the final word.
       </h2>
       <p>
-        A complete Android keyboard with on-device rewriting, visible diffs,
-        and no internet permission.
+        Fix grammar, adjust tone, review the change, and move on.
       </p>
       <div className="button-row">
         <Link href="/download" className="button button--light">
-          Get SottoKey <ArrowRight aria-hidden="true" />
+          Follow the release <ArrowRight aria-hidden="true" />
         </Link>
         <Link href="/proof" className="button button--ghost">
           <ShieldCheck aria-hidden="true" /> Inspect the proof

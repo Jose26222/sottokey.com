@@ -1,17 +1,4 @@
-export type DiffToken = {
-  text: string;
-  kind: "same" | "insert" | "delete";
-};
-
-export type DemoCase = {
-  id: string;
-  mode: "Fix" | "Standard" | "Professional" | "Casual";
-  kicker: string;
-  input: string;
-  output: string;
-  diff: DiffToken[];
-  totalMs: number;
-};
+import { productStatus } from "./product-status";
 
 export const navItems = [
   { href: "/demo", label: "Demo" },
@@ -21,125 +8,72 @@ export const navItems = [
   { href: "/support", label: "Support" },
 ];
 
-export const demoCases: DemoCase[] = [
-  {
-    id: "fix-slang",
-    mode: "Fix",
-    kicker: "Correct the error. Keep the voice.",
-    input: "ngl that demo was fire, we shipped it b4 the deadline lol",
-    output: "ngl that demo was fire, we shipped it before the deadline lol",
-    diff: [
-      {
-        text: "ngl that demo was fire, we shipped it ",
-        kind: "same",
-      },
-      { text: "b4", kind: "delete" },
-      { text: "before", kind: "insert" },
-      { text: " the deadline lol", kind: "same" },
-    ],
-    totalMs: 490,
-  },
-  {
-    id: "standard-memory",
-    mode: "Standard",
-    kicker: "Clearer structure. Same meaning.",
-    input:
-      "so basically what happened is that the server it crashed because memory",
-    output:
-      "So basically what happened is that the server crashed because of memory.",
-    diff: [
-      { text: "s", kind: "delete" },
-      { text: "S", kind: "insert" },
-      { text: "o basically what happened is that the server ", kind: "same" },
-      { text: "it ", kind: "delete" },
-      { text: "crashed because ", kind: "same" },
-      { text: "of ", kind: "insert" },
-      { text: "memory", kind: "same" },
-      { text: ".", kind: "insert" },
-    ],
-    totalMs: 507,
-  },
-  {
-    id: "professional-report",
-    mode: "Professional",
-    kicker: "Work-ready, without corporate inflation.",
-    input:
-      "i ate lunch late so im a bit tired, will finish the report by 5",
-    output:
-      "I ate lunch late, so I'm a bit tired. I'll finish the report by 5.",
-    diff: [
-      { text: "i", kind: "delete" },
-      { text: "I", kind: "insert" },
-      { text: " ate lunch late", kind: "same" },
-      { text: ",", kind: "insert" },
-      { text: " so ", kind: "same" },
-      { text: "im", kind: "delete" },
-      { text: "I'm", kind: "insert" },
-      { text: " a bit tired", kind: "same" },
-      { text: ", will", kind: "delete" },
-      { text: ". I'll", kind: "insert" },
-      { text: " finish the report by 5", kind: "same" },
-      { text: ".", kind: "insert" },
-    ],
-    totalMs: 614,
-  },
-  {
-    id: "casual-late",
-    mode: "Casual",
-    kicker: "Less formal. Still unmistakably yours.",
-    input: "I apologize, but I am running approximately ten minutes late.",
-    output: "Sorry, but I'm running about ten minutes late.",
-    diff: [
-      { text: "I apologize", kind: "delete" },
-      { text: "Sorry", kind: "insert" },
-      { text: ", but ", kind: "same" },
-      { text: "I am", kind: "delete" },
-      { text: "I'm", kind: "insert" },
-      { text: " running ", kind: "same" },
-      { text: "approximately", kind: "delete" },
-      { text: "about", kind: "insert" },
-      { text: " ten minutes late.", kind: "same" },
-    ],
-    totalMs: 536,
-  },
-];
+export const liveDemo = {
+  input: "teh meeting got moved to 3pm",
+  output: "The meeting got moved to 3pm.",
+  capturedAt: productStatus.app.capturedAt,
+  model: `${productStatus.installedModel.name} · ${productStatus.installedModel.packageVersion} · ${productStatus.installedModel.quant}`,
+  frames: [
+    {
+      id: "write",
+      label: "Write",
+      kicker: "Write in the app you already use.",
+      src: "/product/host-keyboard-current.webp",
+      alt: "Current SottoKey keyboard open inside the Android Contacts app",
+    },
+    {
+      id: "choose",
+      label: "Choose",
+      kicker: "Pick Fix, Pro, or Casual.",
+      src: "/product/live-rewrite-idle.webp",
+      alt: "SottoKey's current three-mode rewrite panel on Android",
+    },
+    {
+      id: "review",
+      label: "Review",
+      kicker: "Inspect the real insertion and deletion.",
+      src: "/product/live-rewrite-diff.webp",
+      alt: "SottoKey showing the installed model's real correction as a visible diff",
+    },
+  ],
+} as const;
 
 export const productSurfaces = [
   {
-    src: "/product/keyboard-dark.webp",
-    alt: "SottoKey dark keyboard typing surface on Android",
-    label: "The everyday keyboard",
-    detail: "Fast typing, suggestions, autocorrect, and adaptive touch targets.",
+    src: "/product/host-keyboard-current.webp",
+    alt: "Current SottoKey keyboard inside the Android Contacts app",
+    label: "Write in any app",
+    detail: "The current keyboard, toolbar, and host-app integration on Android.",
   },
   {
-    src: "/product/rewrite-diff.webp",
-    alt: "SottoKey rewrite panel showing colored insertions and deletions",
-    label: "A real diff",
-    detail: "See what changed before anything touches your text.",
+    src: "/product/live-rewrite-idle.webp",
+    alt: "Current SottoKey three-mode rewrite panel on Android",
+    label: "Choose the rewrite",
+    detail: "Fix, Professional, and Casual are the three current rewrite modes.",
   },
   {
-    src: "/product/emoji.webp",
-    alt: "SottoKey local emoji panel",
+    src: "/product/live-rewrite-diff.webp",
+    alt: "Current SottoKey rewrite panel showing a real device diff",
+    label: "Review a real diff",
+    detail: "A measured installed-model result, captured directly from the phone.",
+  },
+  {
+    src: "/product/host-text-editing-current.webp",
+    alt: "Current SottoKey text editing controls inside Android Contacts",
+    label: "Edit precisely",
+    detail: "Selection, navigation, copy, paste, and delete stay within reach.",
+  },
+  {
+    src: "/product/host-tools-current.webp",
+    alt: "Current SottoKey expanded toolbar inside Android Contacts",
+    label: "Tools, one tap away",
+    detail: "Rewrite, editing, clips, undo, and redo share one compact toolbar.",
+  },
+  {
+    src: "/product/host-emoji-current.webp",
+    alt: "Current SottoKey local emoji panel",
     label: "Emoji, local",
-    detail: "Search and recents stay inside the keyboard.",
-  },
-  {
-    src: "/product/text-editing.webp",
-    alt: "SottoKey text editing controls",
-    label: "Precision editing",
-    detail: "Cursor, selection, clipboard, and undo controls where you type.",
-  },
-  {
-    src: "/product/clipboard.webp",
-    alt: "SottoKey private clipboard panel",
-    label: "Private clipboard",
-    detail: "Temporary history in memory, explicit saved snippets on device.",
-  },
-  {
-    src: "/product/keyboard-light.webp",
-    alt: "SottoKey light keyboard theme",
-    label: "Light, dark, OLED",
-    detail: "A complete visual system designed for the keyboard surface.",
+    detail: "Current recents, categories, and keyboard return controls.",
   },
 ];
 
@@ -160,9 +94,9 @@ export const featureGroups = [
     eyebrow: "02 / REVISE",
     title: "Three precise ways to revise.",
     body:
-      "Fix corrects errors. Professional makes a sentence work-ready. Casual relaxes the language. Standard improves clarity without pushing the tone in either direction.",
+      "Fix corrects errors. Professional makes a passage work-ready. Casual relaxes the language. The current app exposes exactly these three rewrite modes.",
     points: [
-      "One-sentence or selected-text boundary",
+      "Current paragraph or explicit selection",
       "Deterministic mode contract",
       "Protected spans and validation",
       "Original text remains until acceptance",
@@ -238,12 +172,14 @@ export const faqItems = [
 ];
 
 export const releaseFacts = {
-  appVersion: "0.4.0",
-  model: "LFM2.5 · 350M · v3 final · Q8_0",
-  modelPayload: "379 MB",
-  device: "Redmi K20 Pro · Snapdragon 855",
-  p50: "490 ms",
-  ttft: "207 ms",
-  speed: "28.3 tok/s",
-  measuredAt: "14 July 2026",
+  appVersion: productStatus.app.version,
+  model: productStatus.installedModel.label,
+  modelPayload: productStatus.installedModel.payload,
+  device: productStatus.performance.device,
+  p50: productStatus.performance.p50,
+  ttft: productStatus.performance.ttft,
+  speed: productStatus.performance.speed,
+  measuredAt: productStatus.installedModel.measuredAt,
 };
+
+export { productStatus };

@@ -15,7 +15,6 @@ export function DeviceFrame({
 }: DeviceFrameProps) {
   return (
     <div className={`device-frame ${className}`}>
-      <span className="device-frame__speaker" aria-hidden="true" />
       <div className="device-frame__screen">
         <Image
           src={src}

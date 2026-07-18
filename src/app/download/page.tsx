@@ -11,7 +11,7 @@ import {
   Smartphone,
 } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
-import { releaseFacts } from "@/data/site";
+import { productStatus, releaseFacts } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Download",
@@ -54,11 +54,11 @@ export default function DownloadPage() {
             Preparing for Play.
           </>
         }
-        body="SottoKey is in release preparation. The complete keyboard and bundled on-device model are working on physical hardware; the permanent Play listing, signing, policy forms, and closed-track review remain before public availability."
+        body="SottoKey 0.4.0 is running on physical Android hardware. The installed v3 Q8 model remains the measured evidence package while its replacement is evaluated; public Play availability still follows release packaging and closed-track review."
         aside={
           <div className="availability-pill">
             <span />
-            Release preparation · v{releaseFacts.appVersion}
+            {productStatus.releaseStage} · v{releaseFacts.appVersion}
           </div>
         }
       />

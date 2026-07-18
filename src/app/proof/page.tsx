@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { ClosingCta } from "@/components/ClosingCta";
 import { PageHero } from "@/components/PageHero";
-import { releaseFacts } from "@/data/site";
+import { productStatus, releaseFacts } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Technical Proof",
@@ -79,14 +79,14 @@ export default function ProofPage() {
             <h2>Every step stays inside the application process.</h2>
           </div>
           <p>
-            The keyboard selects a bounded sentence, asks the local model,
-            validates the response, renders a diff, and waits for a human
-            action.
+            The keyboard captures your exact selection or a bounded paragraph
+            window, asks the local model, validates the response, renders a
+            diff, and waits for a human action.
           </p>
         </div>
         <div className="architecture-flow">
           {[
-            ["01", "InputConnection", "Current sentence or explicit selection"],
+            ["01", "InputConnection", "Exact selection or paragraph window"],
             ["02", "Protected spans", "URLs, numbers, email, negation checks"],
             ["03", "Local model", "llama.cpp CPU runtime + verified GGUF"],
             ["04", "Validator", "Reject unsafe or malformed changes"],
@@ -112,14 +112,25 @@ export default function ProofPage() {
             <h2>A versioned model, package, and measurement.</h2>
           </div>
           <p>
-            Metrics are published with the exact device and model context. They
-            are not generalized to every Android phone.
+            The app UI, installed model, and next model are tracked separately.
+            Metrics remain attached to the exact package and device that
+            produced them.
           </p>
         </div>
         <div className="release-proof__grid">
           {[
-            [Box, "APP", releaseFacts.appVersion, "Current source version"],
-            [Binary, "MODEL", releaseFacts.model, releaseFacts.modelPayload],
+            [
+              Box,
+              "APP UI",
+              releaseFacts.appVersion,
+              `${productStatus.app.state} · captured ${productStatus.app.capturedAt}`,
+            ],
+            [
+              Binary,
+              "INSTALLED MODEL",
+              releaseFacts.model,
+              `${releaseFacts.modelPayload} · ${productStatus.installedModel.qualityGate}`,
+            ],
             [Gauge, "P50 TOTAL", releaseFacts.p50, releaseFacts.device],
             [FileCheck2, "TTFT", releaseFacts.ttft, releaseFacts.measuredAt],
           ].map(([IconValue, label, value, detail]) => {
@@ -144,7 +155,9 @@ export default function ProofPage() {
           </div>
           <p>
             The preview is required because the model can still drift. The
-            product does not hide that behind a confidence animation.
+            installed v3 model passed six of eight hard gates under a documented
+            exception; the product does not hide that behind a confidence
+            animation.
           </p>
         </div>
         <div className="quality-proof__columns">
@@ -175,11 +188,12 @@ export default function ProofPage() {
             <TriangleAlert aria-hidden="true" />
             <h3>What remains imperfect</h3>
             <ul>
-              <li>Quantized wording can still change meaning.</li>
-              <li>Spanish rewrite quality is not yet publicly verified.</li>
+              <li>Meaning corruption missed the installed model&apos;s gate.</li>
+              <li>Spanish identity behavior also missed its release gate.</li>
+              <li>Mixed-language Professional rewriting is a known weak area.</li>
               <li>Short ambiguous sentences are difficult for a 350M model.</li>
               <li>Battery-per-rewrite and sustained thermal tests remain open.</li>
-              <li>Some host apps misclassify sensitive text fields.</li>
+              <li>The replacement model is still in evaluation.</li>
             </ul>
           </article>
         </div>

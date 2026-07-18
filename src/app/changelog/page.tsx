@@ -50,6 +50,7 @@ const releases = [
           "Physical-device glide accuracy and thresholds",
           "TalkBack acceptance across expanded tool panels",
           "Battery per rewrite and sustained thermal behavior",
+          "Replacement model evaluation and device packaging",
           "Public Play signing, asset delivery, and closed-track review",
         ],
       },
@@ -95,7 +96,7 @@ const releases = [
         icon: CircleDot,
         title: "Foundation",
         items: [
-          "Fix, Standard, Professional, and Casual modes",
+          "Fix, Professional, and Casual modes",
           "Diff preview, Keep original, Accept edit, and Undo edit",
           "llama.cpp CPU runtime and on-demand model session policy",
           "Local dictionaries, adaptive hitboxes, and privacy controls",

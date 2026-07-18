@@ -29,7 +29,10 @@ horizontal overflow, and produces visual-review captures in
   `/code/projects/keyboard-polish-android`
 - Website claim ledger: `docs/CLAIM-LEDGER.md`
 - Generated and captured media provenance: `docs/ASSET-MANIFEST.md`
+- App/model/site synchronization: `docs/PRODUCT-UPDATE-RUNBOOK.md`
 - Deployment binding: `.openai/hosting.json`
 
 The launch site intentionally has no live inference endpoint. Its interactive
-demo uses verified outputs from the current v3-final Q8 model.
+demo uses a verified output from the currently installed v3-final Q8 evidence
+model; replacement models remain labeled as evaluation-only until installed and
+measured.

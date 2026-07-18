@@ -1,74 +1,65 @@
-import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowDown,
   ArrowRight,
   Check,
   ChevronRight,
-  Eye,
-  ShieldCheck,
-  WifiOff,
 } from "lucide-react";
 import { ClosingCta } from "@/components/ClosingCta";
-import { FaqList } from "@/components/FaqList";
+import { DeviceFrame } from "@/components/DeviceFrame";
 import { GuidedDemo } from "@/components/GuidedDemo";
+import { PrivacyPath } from "@/components/PrivacyPath";
 import { ProductFilm } from "@/components/ProductFilm";
 import { ProofRail } from "@/components/ProofRail";
-import { featureGroups, releaseFacts } from "@/data/site";
+import {
+  featureGroups,
+  productStatus,
+  releaseFacts,
+} from "@/data/site";
 
 export default function Home() {
   return (
     <>
       <section className="home-hero">
-        <Image
-          src="/studio/hero-instrument.webp"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="home-hero__image"
-        />
-        <div className="home-hero__veil" />
         <div className="home-hero__grain" />
-        <div className="home-hero__content">
-          <p className="eyebrow">PRIVATE AI KEYBOARD FOR ANDROID</p>
-          <h1>
-            Rewrite your words.
-            <br />
-            <span>Keep them yours.</span>
-          </h1>
-          <p className="home-hero__lede">
-            SottoKey fixes grammar and changes tone with a small language model
-            that runs on your phone. No internet permission. No account. You
-            approve every edit.
-          </p>
-          <div className="button-row">
-            <Link href="/download" className="button button--light">
-              Get SottoKey <ArrowRight aria-hidden="true" />
-            </Link>
-            <Link href="/demo" className="button button--ghost">
-              Watch a real rewrite
-            </Link>
+        <div className="home-hero__inner">
+          <div className="home-hero__content">
+            <p className="eyebrow">PRIVATE ANDROID KEYBOARD · DEVICE BETA</p>
+            <h1>
+              Rewrite your words.
+              <br />
+              <span>Keep them yours.</span>
+            </h1>
+            <p className="home-hero__lede">
+              Fix grammar and change tone directly where you type. Review the
+              difference before anything replaces your text.
+            </p>
+            <div className="button-row">
+              <Link href="/download" className="button button--light">
+                Release status <ArrowRight aria-hidden="true" />
+              </Link>
+              <Link href="/demo" className="button button--ghost">
+                Watch the live capture
+              </Link>
+            </div>
           </div>
-          <div className="home-hero__proof">
-            <span>
-              <WifiOff aria-hidden="true" /> No internet permission
-            </span>
-            <span>
-              <Eye aria-hidden="true" /> Visible diff
-            </span>
-            <span>
-              <ShieldCheck aria-hidden="true" /> On-device model
-            </span>
+
+          <div className="home-hero__stage">
+            <div className="home-hero__capture-badge">
+              <span />
+              Real Android screen · app {productStatus.app.version}
+            </div>
+            <DeviceFrame
+              src="/product/host-keyboard-current.webp"
+              alt="Current SottoKey keyboard inside the Android Contacts app"
+              className="home-hero__device"
+              priority
+            />
+            <div className="home-hero__capture-meta">
+              <strong>{productStatus.app.state}</strong>
+              <span>Captured {productStatus.app.capturedAt}</span>
+            </div>
           </div>
-        </div>
-        <div className="home-hero__signal" aria-hidden="true">
-          <span className="home-hero__signal-label">ON-DEVICE</span>
-          <div>
-            <del>b4</del>
-            <ins>before</ins>
-          </div>
-          <span>+1 −1 · preview before applying</span>
         </div>
         <a href="#proof" className="home-hero__scroll">
           <span>Discover SottoKey</span>
@@ -80,73 +71,35 @@ export default function Home() {
         <ProofRail />
       </div>
 
-      <section className="manifesto section section--paper">
-        <p className="eyebrow">THE QUIET INSTRUMENT</p>
-        <h2>
-          Most AI keyboards ask you to trust a privacy policy.
-          <br />
-          <span>SottoKey removes the permission.</span>
-        </h2>
-        <div className="manifesto__body">
-          <p>
-            A keyboard sits underneath every message, search, note, and form.
-            SottoKey is designed around that responsibility: local inference,
-            bounded context, no network path, and an explicit human decision
-            before text changes.
-          </p>
-          <Link href="/privacy">
-            Read the privacy architecture <ArrowRight aria-hidden="true" />
-          </Link>
-        </div>
-      </section>
-
       <section className="demo-section section section--dark">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">A REAL REWRITE</p>
-            <h2>Not a chatbot. A proofreader inside the keyboard.</h2>
+            <p className="eyebrow">TRY THE CORE INTERACTION</p>
+            <h2>Fix a sentence without leaving the app.</h2>
           </div>
           <p>
-            Choose a verified example. Watch the release model revise it,
-            inspect the exact diff, then accept or keep the original.
+            Choose a real model result, inspect the changes, and accept only
+            when it reads right.
           </p>
         </div>
         <GuidedDemo />
       </section>
 
       <section className="privacy-cinema section section--dark">
-        <div className="privacy-cinema__image">
-          <Image
-            src="/studio/privacy-cutaway.webp"
-            alt="Exploded view of text, keyboard, local model, phone, and disconnected network"
-            fill
-            sizes="100vw"
-          />
-          <div className="privacy-cinema__labels" aria-hidden="true">
-            <span>YOUR SENTENCE</span>
-            <span>KEYBOARD</span>
-            <span>LOCAL MODEL</span>
-            <span>YOUR PHONE</span>
-            <span>NO PATH</span>
-          </div>
-        </div>
+        <PrivacyPath />
         <div className="privacy-cinema__copy">
           <div>
             <p className="eyebrow">PRIVACY, MADE PHYSICAL</p>
-            <h2>The network is not part of the architecture.</h2>
+            <h2>Your sentence stays on your phone.</h2>
           </div>
           <div>
             <p>
-              The release app has no Android INTERNET permission. The model,
-              sentence boundary, validator, diff, and final edit all stay
-              inside the device.
+              Android gives the release app no INTERNET permission. The model,
+              review, and final edit all happen inside the device.
             </p>
             <div className="text-links">
               <Link href="/proof">
                 Inspect the Android proof <ChevronRight aria-hidden="true" />
-              </Link>
-              <Link href="/privacy">
-                Read the privacy notice <ChevronRight aria-hidden="true" />
               </Link>
             </div>
           </div>
@@ -156,22 +109,21 @@ export default function Home() {
       <section className="feature-editorial section section--paper">
         <div className="section-heading section-heading--paper">
           <div>
-            <p className="eyebrow">THE COMPLETE PRODUCT</p>
-            <h2>AI is one tool. The keyboard still has to be excellent.</h2>
+            <p className="eyebrow">MORE THAN A REWRITE BUTTON</p>
+            <h2>A complete keyboard with one focused AI tool.</h2>
           </div>
           <p>
-            SottoKey is built as an everyday Android keyboard, not a rewrite
-            overlay with keys attached.
+            Type, revise, and review without changing apps or surrendering
+            control.
           </p>
         </div>
         <div className="feature-editorial__grid">
-          {featureGroups.map((group) => (
+          {featureGroups.slice(0, 3).map((group) => (
             <article key={group.eyebrow}>
               <p className="eyebrow">{group.eyebrow}</p>
               <h3>{group.title}</h3>
-              <p>{group.body}</p>
               <ul>
-                {group.points.map((point) => (
+                {group.points.slice(0, 3).map((point) => (
                   <li key={point}>
                     <Check aria-hidden="true" />
                     {point}
@@ -190,49 +142,42 @@ export default function Home() {
         <div className="section-heading">
           <div>
             <p className="eyebrow">CAPTURED ON ANDROID</p>
-            <h2>A keyboard with depth, not decoration.</h2>
+            <h2>The real product, one surface at a time.</h2>
           </div>
           <p>
-            Real app surfaces from the current build. Pause, inspect, and move
-            through the product at your own pace.
+            Pause the film and inspect typing, rewriting, review, editing,
+            tools, and emoji.
           </p>
         </div>
         <ProductFilm />
       </section>
 
-      <section className="materials-section section section--dark">
-        <div className="materials-section__image">
-          <Image
-            src="/studio/keycap-macro.webp"
-            alt="Macro product render of the SottoKey three-dot keycap"
-            fill
-            sizes="100vw"
-          />
-        </div>
-        <div className="materials-section__copy">
-          <p className="eyebrow">DESIGNED LIKE AN INSTRUMENT</p>
-          <h2>Quiet surfaces. Fast reactions. No AI theatre.</h2>
-          <p>
-            Graphite keys, one ink accent, proofreader marks, and zero
-            sparkles. Every interaction is designed to respond immediately and
-            settle without getting between your finger and the text.
-          </p>
-          <Link href="/features">
-            See the design system <ArrowRight aria-hidden="true" />
-          </Link>
-        </div>
-      </section>
-
       <section className="evidence section section--paper">
         <div className="section-heading section-heading--paper">
           <div>
-            <p className="eyebrow">MEASURED, NOT ESTIMATED</p>
-            <h2>Small enough for the phone. Fast enough for the sentence.</h2>
+            <p className="eyebrow">MEASURED ON REAL HARDWARE</p>
+            <h2>Fast enough to stay in the flow.</h2>
           </div>
           <p>
-            These numbers come from the production session path on real
-            hardware, with the model identity verified before the run.
+            Installed-model measurements, not estimates for every Android phone.
           </p>
+        </div>
+        <div className="release-status-band">
+          <div>
+            <span>APP UI</span>
+            <strong>v{productStatus.app.version}</strong>
+            <small>{productStatus.app.state}</small>
+          </div>
+          <div>
+            <span>INSTALLED MODEL</span>
+            <strong>{productStatus.installedModel.name}</strong>
+            <small>{productStatus.installedModel.qualityGate}</small>
+          </div>
+          <div>
+            <span>NEXT MODEL</span>
+            <strong>{productStatus.nextModel.state}</strong>
+            <small>Not represented until packaged and measured</small>
+          </div>
         </div>
         <div className="evidence__grid">
           <div className="evidence__device">
@@ -243,7 +188,7 @@ export default function Home() {
           <div>
             <span>P50 TOTAL</span>
             <strong>{releaseFacts.p50}</strong>
-            <small>single-sentence rewrite</small>
+            <small>installed-model rewrite corpus</small>
           </div>
           <div>
             <span>TIME TO FIRST TOKEN</span>
@@ -263,23 +208,6 @@ export default function Home() {
         </div>
         <Link href="/proof" className="editorial-link">
           Read the complete evidence <ArrowRight aria-hidden="true" />
-        </Link>
-      </section>
-
-      <section className="faq-section section section--paper">
-        <div className="section-heading section-heading--paper">
-          <div>
-            <p className="eyebrow">THE IMPORTANT QUESTIONS</p>
-            <h2>Privacy claims should survive inspection.</h2>
-          </div>
-          <p>
-            Clear answers about the model, Android&apos;s warning, battery,
-            storage, password fields, and known limitations.
-          </p>
-        </div>
-        <FaqList limit={5} />
-        <Link href="/support" className="editorial-link">
-          Read all questions <ArrowRight aria-hidden="true" />
         </Link>
       </section>
 

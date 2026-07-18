@@ -44,7 +44,7 @@ export function SiteHeader() {
         </nav>
         <div className="site-header__actions">
           <Link href="/download" className="button button--small button--light">
-            Get SottoKey
+            Android status
           </Link>
           <button
             type="button"
@@ -78,7 +78,7 @@ export function SiteHeader() {
             className="mobile-nav__cta"
             onClick={() => setOpen(false)}
           >
-            Get SottoKey
+            Android status
           </Link>
         </nav>
       </div>

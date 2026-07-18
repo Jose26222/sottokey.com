@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -13,6 +12,7 @@ import {
 } from "lucide-react";
 import { ClosingCta } from "@/components/ClosingCta";
 import { PageHero } from "@/components/PageHero";
+import { PrivacyPath } from "@/components/PrivacyPath";
 
 export const metadata: Metadata = {
   title: "Privacy",
@@ -81,20 +81,7 @@ export default function PrivacyPage() {
       />
 
       <section className="privacy-visual section section--dark">
-        <Image
-          src="/studio/privacy-cutaway.webp"
-          alt="Text and keyboard processing remain inside an Android phone, separate from a disconnected network"
-          fill
-          priority
-          sizes="100vw"
-        />
-        <div className="privacy-visual__legend">
-          <span>Sentence</span>
-          <span>Keyboard</span>
-          <span>Local model</span>
-          <span>Phone</span>
-          <span>Disconnected</span>
-        </div>
+        <PrivacyPath />
       </section>
 
       <section className="privacy-guarantees section section--paper">
@@ -128,12 +115,13 @@ export default function PrivacyPage() {
       <section className="policy-copy section section--paper">
         <article>
           <p className="eyebrow">WHAT IS PROCESSED</p>
-          <h2>One sentence, or the selection you chose.</h2>
+          <h2>The selected text, or the paragraph around your cursor.</h2>
           <p>
-            A rewrite request contains only the current sentence or your
-            explicit selection, capped at 2,000 characters. It does not contain
-            the entire field, other app content, previous conversations, or
-            text you did not act on.
+            An explicit selection is rewritten exactly when it fits the
+            2,000-character model budget. Without a selection, SottoKey captures
+            the current paragraph. Longer paragraphs use a visible
+            sentence-boundary window around the cursor; the remaining sentences
+            stay untouched.
           </p>
           <p>
             The model processes that text in memory. The editor validates the

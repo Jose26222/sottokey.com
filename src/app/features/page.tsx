@@ -25,9 +25,9 @@ export const metadata: Metadata = {
 const detailCards = [
   {
     icon: ScanText,
-    title: "Sentence-bounded rewriting",
+    title: "Paragraph-aware rewriting",
     copy:
-      "SottoKey sends the model the current sentence or your explicit selection, capped at 2,000 characters—not the entire field.",
+      "SottoKey rewrites your exact selection or the current paragraph. Long paragraphs use an explicit sentence window within the 2,000-character model budget.",
   },
   {
     icon: Languages,
