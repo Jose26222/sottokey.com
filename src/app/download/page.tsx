@@ -153,13 +153,14 @@ export default function DownloadPage() {
       <section className="download-explainer section section--dark">
         <div>
           <p className="eyebrow">WHY THE MODEL LIVES IN THE APP</p>
-          <h2>The storage cost of keeping every rewrite local.</h2>
+          <h2>The size is the proof.</h2>
         </div>
         <div>
           <p>
-            Cloud writing tools keep their models on a server. SottoKey packages
-            its model for your phone. That uses more storage, but every rewrite
-            works without a network connection or account.
+            Cloud writing tools keep the model on a server. SottoKey puts{" "}
+            {releaseFacts.modelPayload} of it on your phone. That storage is not
+            a drawback. It is why every rewrite works with no connection, no
+            account, and no trust required.
           </p>
           <ul>
             <li>

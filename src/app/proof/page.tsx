@@ -151,13 +151,12 @@ export default function ProofPage() {
         <div className="section-heading section-heading--paper">
           <div>
             <p className="eyebrow">PROOF 04 / QUALITY BOUNDARIES</p>
-            <h2>The preview exists for a reason.</h2>
+            <h2>The diff exists because small models drift.</h2>
           </div>
           <p>
-            The preview is required because the model can still drift. The
-            installed v3 model passed six of eight hard gates under a documented
-            exception; the product does not hide that behind a confidence
-            animation.
+            The installed v3 model passed six of eight hard release gates and
+            shipped under a documented exception. So every edit shows its work
+            and waits for you—that is not a disclaimer, it is the interface.
           </p>
         </div>
         <div className="quality-proof__columns">

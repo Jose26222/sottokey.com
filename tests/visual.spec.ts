@@ -58,6 +58,30 @@ for (const route of routes) {
   });
 }
 
+test("display typography stays restrained across routes", async ({
+  page,
+}, testInfo) => {
+  const isMobile = testInfo.project.name === "mobile";
+  const maximumFontSize = isMobile ? 51 : 94;
+  const maximumHeadingHeight = isMobile ? 270 : 340;
+
+  for (const route of routes) {
+    await page.goto(route);
+    const heading = page.locator("h1");
+    const fontSize = await heading.evaluate((element) =>
+      Number.parseFloat(getComputedStyle(element).fontSize),
+    );
+    const box = await heading.boundingBox();
+
+    expect(fontSize, `${route} h1 font size`).toBeLessThanOrEqual(
+      maximumFontSize,
+    );
+    expect(box?.height ?? 0, `${route} h1 height`).toBeLessThanOrEqual(
+      maximumHeadingHeight,
+    );
+  }
+});
+
 test("guided demo switches through captured device states", async ({ page }) => {
   await page.goto("/demo");
   const guidedDemo = page.locator(".guided-demo").first();

@@ -150,47 +150,47 @@ export const faqItems = [
   {
     question: "Does SottoKey send what I type to a server?",
     answer:
-      "No. The Android production build requests no INTERNET permission, and rewriting uses a model packaged for the phone. This website shows a fixed, verified example and never asks for your text.",
+      "It can't. The app has no INTERNET permission, so Android gives it no way to open a connection, and the rewrite model lives on the phone. Don't take our word for it—check the permission list yourself.",
   },
   {
     question: "Why does Android show a keyboard warning?",
     answer:
-      "Android shows the same generic warning when enabling any third-party keyboard. SottoKey's answer is structural: the release app does not have permission to access the internet.",
+      "Android shows the same generic warning for every third-party keyboard, whatever its actual permissions. SottoKey's answer is structural: no internet permission, so your keystrokes have nowhere to go. Check the permission list yourself.",
   },
   {
     question: "Can the model make mistakes?",
     answer:
-      "Yes. A small on-device model can choose the wrong word or alter meaning. SottoKey shows every change and waits for your approval. It also checks numbers, URLs, negation, and other protected content, but those checks do not replace careful review.",
+      "Yes. A small on-device model can pick the wrong word or shift a meaning. That is why nothing is replaced silently: every change is marked, and the edit waits for your approval. SottoKey also checks numbers, URLs, and negation—but your review is the final gate.",
   },
   {
     question: "Does it work in password fields?",
     answer:
-      "The keyboard still types, but suggestions, learning, rewrite, and clipboard capture are disabled in fields correctly marked as password-class by the host app.",
+      "It still types, and that is all. Suggestions, learning, rewriting, and clipboard capture switch off in fields the host app correctly marks as password-class.",
   },
   {
     question: "How much storage does it use?",
     answer:
-      `The current ${productStatus.installedModel.quant} model payload is approximately ${productStatus.installedModel.payload}, plus the keyboard runtime and app. The final Google Play download and installed size may change before release.`,
+      `The current ${productStatus.installedModel.quant} model payload is approximately ${productStatus.installedModel.payload}, plus the keyboard and app. That size is the point: the model sits on your phone, so rewriting needs no server, no account, and no connection. The final Play download size may change before release.`,
   },
   {
     question: "How does rewriting affect battery life?",
     answer:
-      "A rewrite uses more power than ordinary typing because it runs the local model. The model runs only when you ask, never continuously while typing. Battery-per-rewrite and sustained thermal testing are still open, so SottoKey does not publish a battery estimate yet.",
+      "A rewrite runs the local model, so it costs more power than typing. The model runs only when you ask, never in the background while you type. SottoKey does not publish a battery figure yet—the testing is still open, and a guessed number is worse than none.",
   },
   {
     question: "Does it rewrite Spanish?",
     answer:
-      "Not reliably enough to promise yet. The keyboard supports Spanish layouts, dictionaries, and local correction, but the current rewrite model is English-focused and Spanish rewrite quality is still being evaluated.",
+      "Not yet. The keyboard handles Spanish layouts, dictionaries, and local correction, but the rewrite model is English-focused. SottoKey will claim Spanish rewriting when it earns the claim, not before.",
   },
   {
     question: "Is it available on iPhone?",
     answer:
-      "No. SottoKey is currently an Android keyboard. The architecture and release work are focused on Android.",
+      "No. SottoKey is an Android keyboard, and the release work is focused there.",
   },
   {
     question: "Can I try arbitrary text on this website?",
     answer:
-      "No. A live web rewrite would need a server and would not demonstrate the private Android product. The guided demo uses a verified result from the model installed on the test phone.",
+      "No. A live web rewrite would need a server, and a server is the one thing SottoKey does not have. The demo on this site shows a real rewrite from the model that ships in the app.",
   },
 ];
 

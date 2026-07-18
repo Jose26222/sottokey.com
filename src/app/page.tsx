@@ -25,23 +25,26 @@ export default function Home() {
         <div className="home-hero__grain" />
         <div className="home-hero__inner">
           <div className="home-hero__content">
-            <p className="eyebrow">PRIVATE REWRITING · NO INTERNET PERMISSION</p>
+            <p className="eyebrow">A KEYBOARD HAS NO BUSINESS BEING ONLINE</p>
             <h1>
-              Rewrite your words.
+              If you&apos;re not paying,
               <br />
-              <span>Keep them yours.</span>
+              you&apos;re the product.
+              <br />
+              <span>We&apos;d rather just charge you.</span>
             </h1>
             <p className="home-hero__lede">
-              Your keyboard sits inside every message, search, note, and form.
-              SottoKey fixes grammar and tone on your phone, with no account,
-              analytics, or network permission.
+              No ads. No account. No analytics. No internet permission at
+              all—so there is nothing to opt out of and nothing to take on
+              trust. SottoKey fixes grammar and tone on your phone, in airplane
+              mode.
             </p>
             <div className="button-row">
-              <Link href="/demo" className="button button--light">
-                See SottoKey work <ArrowRight aria-hidden="true" />
+              <Link href="/proof" className="button button--light">
+                Check the permission <ArrowRight aria-hidden="true" />
               </Link>
-              <Link href="/privacy" className="button button--ghost">
-                Why privacy is different
+              <Link href="/demo" className="button button--ghost">
+                See SottoKey work
               </Link>
             </div>
           </div>
@@ -80,8 +83,8 @@ export default function Home() {
             <h2>Make the sentence fit the moment.</h2>
           </div>
           <p>
-            Fix the typo, raise the tone, or loosen the wording without leaving
-            the app or handing the draft to a server.
+            Fix the typo. Sharpen the tone. Send the email you meant to
+            send—without your draft ever leaving the phone.
           </p>
         </div>
         <GuidedDemo />
@@ -96,9 +99,11 @@ export default function Home() {
           </div>
           <div>
             <p>
-              SottoKey&apos;s production manifest requests no INTERNET
-              permission. Your text still goes where you put it—the app you are
-              typing in—not to a SottoKey server.
+              Every keyboard you&apos;ve used collects something—their own Data
+              safety sections say so. SottoKey&apos;s answer is not a promise or
+              a settings page. It is a missing permission: the production
+              manifest requests no INTERNET, so your text still goes where you
+              put it—the app you are typing in—not to a SottoKey server.
             </p>
             <div className="text-links">
               <Link href="/proof">
@@ -117,8 +122,9 @@ export default function Home() {
             <h2>Everything you expect. One thing you don&apos;t.</h2>
           </div>
           <p>
-            Everyday keyboard tools do not become optional just because privacy
-            matters.
+            Privacy is no excuse for a worse keyboard. Correction, editing,
+            clips, and emoji carry the everyday work; rewriting carries the
+            rest.
           </p>
         </div>
         <div className="feature-editorial__grid">
@@ -163,8 +169,9 @@ export default function Home() {
             <h2>The median rewrite took {releaseFacts.p50}.</h2>
           </div>
           <p>
-            Results from the installed model on one Snapdragon 855 test device,
-            not a promise for every Android phone.
+            Measured with the installed model on one Snapdragon 855 device.
+            Numbers vary by phone. What never varies: no rewrite waits on a
+            network, because there isn&apos;t one.
           </p>
         </div>
         <div className="release-status-band">

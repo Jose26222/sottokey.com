@@ -8,17 +8,17 @@ const items = [
   {
     icon: ServerOff,
     title: "No internet permission",
-    copy: "The production app has no permission to open a network socket.",
+    copy: "Not a promise—an absent permission. The app cannot open a network connection, and you can check that yourself in thirty seconds.",
   },
   {
     icon: CheckCheck,
     title: "You keep the final word",
-    copy: "Every proposed rewrite waits in a visible diff for your approval.",
+    copy: "Every rewrite waits in a visible diff. Nothing changes until you say so.",
   },
   {
     icon: Keyboard,
     title: "No account behind it",
-    copy: "No sign-in, analytics SDK, cloud model, or remote logs.",
+    copy: "No sign-in. No analytics SDK. No cloud model. No remote logs. Nothing to opt out of.",
   },
 ];
 

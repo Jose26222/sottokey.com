@@ -24,7 +24,7 @@ export default function DemoPage() {
             See the change.
           </>
         }
-        body="Fix grammar or shift the tone in the app you are already using. SottoKey runs the rewrite on your phone, shows every insertion and deletion, and waits for you."
+        body="Fix grammar or shift tone in the app you are already typing in. The model runs on your phone, every change is marked, and nothing is replaced until you say so."
         aside={
           <div className="hero-proof-note">
             <WifiOff aria-hidden="true" />
