@@ -18,12 +18,12 @@ export function GuidedDemo({ compact = false }: { compact?: boolean }) {
     <div className={`guided-demo ${compact ? "guided-demo--compact" : ""}`}>
       <div className="guided-demo__controls">
         <div>
-          <p className="eyebrow">CAPTURED LIVE ON ANDROID</p>
-          <h2>One correction. Three real states.</h2>
+          <p className="eyebrow">CAPTURED ON ANDROID</p>
+          <h2>One correction. The whole decision.</h2>
           <p className="guided-demo__lede">
-            No reconstructed keyboard and no generated screen. Choose a step to
-            inspect the current app exactly as it appeared on the connected
-            phone.
+            These are real screens from the current device build. Choose a step
+            to see where the edit begins, how the mode is chosen, and what you
+            review before accepting it.
           </p>
         </div>
 
@@ -63,8 +63,8 @@ export function GuidedDemo({ compact = false }: { compact?: boolean }) {
             <strong>{productStatus.installedModel.state}</strong>
             <span>{liveDemo.model}</span>
             <small>
-              Captured {liveDemo.capturedAt}. A replacement model is still in
-              evaluation.
+              Captured {liveDemo.capturedAt}. This example does not predict the
+              result for other text.
             </small>
           </div>
         </div>
@@ -74,7 +74,7 @@ export function GuidedDemo({ compact = false }: { compact?: boolean }) {
         <div className="demo-live-stage__light" aria-hidden="true" />
         <div className="demo-live-stage__badge">
           <span />
-          Live device capture · app {productStatus.app.version}
+          Device capture · app {productStatus.app.version}
         </div>
         <DeviceFrame
           src={active.src}

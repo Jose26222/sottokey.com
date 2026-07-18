@@ -1,7 +1,16 @@
 export const productStatus = {
   lastReviewed: "18 July 2026",
   releaseStage: "Private device beta",
-  availability: "Google Play release not yet open",
+  availability: "Not yet available on Google Play",
+  googlePlay: {
+    href: null as string | null,
+    liveLabel: "View on Google Play",
+    pendingLabel: "Google Play listing not yet public",
+  },
+  requirements: {
+    android: "Android 8.0 or later",
+    architecture: "64-bit ARM",
+  },
   app: {
     version: "0.4.0",
     versionCode: 7,

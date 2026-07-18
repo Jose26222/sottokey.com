@@ -19,7 +19,7 @@ import {
 export const metadata: Metadata = {
   title: "Press Kit",
   description:
-    "SottoKey product facts, approved descriptions, brand assets, product renders, real screenshots, and media guidance.",
+    "SottoKey product facts, approved descriptions, brand assets, real Android screenshots, and media guidance.",
 };
 
 export default function PressPage() {
@@ -34,7 +34,7 @@ export default function PressPage() {
             and product story.
           </>
         }
-        body="Approved descriptions, versioned app and model facts, and current Android product captures for editorial coverage."
+        body="Approved descriptions, versioned app and model facts, and current Android captures for accurate editorial coverage."
         aside={
           <div className="hero-proof-note">
             <FileText aria-hidden="true" />
@@ -49,7 +49,7 @@ export default function PressPage() {
           <p className="eyebrow">SHORT DESCRIPTION</p>
           <blockquote>
             SottoKey is a private Android keyboard that fixes grammar and
-            changes tone with a small language model running entirely on the
+            changes tone with a compact language model running entirely on the
             phone. The app has no internet permission, no account, and shows a
             diff before every edit.
           </blockquote>
@@ -83,7 +83,7 @@ export default function PressPage() {
             </div>
             <div>
               <dt>Availability</dt>
-              <dd>Release preparation</dd>
+              <dd>{productStatus.availability}</dd>
             </div>
           </dl>
         </article>
@@ -96,9 +96,8 @@ export default function PressPage() {
             <h2>A keycap. Three fading dots. Quiet typing.</h2>
           </div>
           <p>
-            Use the mark with adequate space. Do not add AI sparkles, recolor
-            the semantic diff palette, or place the wordmark inside a competing
-            shape.
+            Give the mark room to breathe. Keep the insertion and deletion
+            colors intact, and do not place the wordmark inside another shape.
           </p>
         </div>
         <div className="brand-assets__grid">
@@ -127,8 +126,8 @@ export default function PressPage() {
           </div>
           <p>
             Every screen reflects the {productStatus.app.version} device UI.
-            The rewrite frame is explicitly tied to the installed v3 evidence
-            model, not the model still in evaluation.
+            The rewrite frame belongs to the installed v3 evidence model, not
+            the replacement model still in evaluation.
           </p>
         </div>
         <div className="press-screens__grid">

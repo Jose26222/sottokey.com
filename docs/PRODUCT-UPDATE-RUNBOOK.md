@@ -32,6 +32,7 @@ Keep updates inside these boundaries:
 | Concern | Canonical file | Rule |
 |---|---|---|
 | App, model, release, and performance status | `src/data/product-status.ts` | Change facts here before changing copy |
+| Google Play destination and availability | `productStatus.googlePlay` in `src/data/product-status.ts` | Keep `href` null until the verified public listing URL is supplied |
 | Published device media and demo order | `productMedia`, `liveDemo`, and `productSurfaces` in `src/data/site.ts` | Components must not hard-code product image paths |
 | Raw and derived media provenance | `docs/ASSET-MANIFEST.md` | Record raw and WebP hashes together |
 | Phone presentation | `src/components/DeviceFrame.tsx` | Keep one hardware frame and the 1080:2340 screen contract |
@@ -54,6 +55,13 @@ Choose the smallest complete update:
   publish a mixed set that makes old output appear to come from a new model.
 - **Copy only:** do not replace captures or metrics unless their evidence also
   changed.
+
+The Google Play CTA is deliberately data-driven. While
+`productStatus.googlePlay.href` is `null`, it renders as an unavailable
+placeholder. Add only the final stakeholder-approved listing URL; do not use a
+search result, package-name guess, Play Console draft URL, or temporary testing
+track link. Publishing a price is a separate stakeholder approval and must not
+be inferred from internal planning.
 
 Stable semantic asset names such as `host-keyboard-current.webp` are deliberate.
 Replace the file and its two hashes atomically, then update `productMedia` only
@@ -108,6 +116,12 @@ through page components.
 
 ```bash
 rg -n "Standard|current model|current release|single-sentence|sentence or" src
+```
+
+- Confirm that no unapproved store price appears:
+
+```bash
+rg -n "\\$[0-9]|price|pricing" src
 ```
 
 ### 5. Validate

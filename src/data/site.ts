@@ -44,19 +44,19 @@ export const liveDemo = {
     {
       id: "write",
       label: "Write",
-      kicker: "Write in the app you already use.",
+      kicker: "Start in the app you already use.",
       ...productMedia.keyboard,
     },
     {
       id: "choose",
       label: "Choose",
-      kicker: "Pick Fix, Pro, or Casual.",
+      kicker: "Choose Fix, Professional, or Casual.",
       ...productMedia.rewriteIdle,
     },
     {
       id: "review",
       label: "Review",
-      kicker: "Inspect the real insertion and deletion.",
+      kicker: "Check every insertion and deletion.",
       ...productMedia.rewriteDiff,
     },
   ],
@@ -65,82 +65,82 @@ export const liveDemo = {
 export const productSurfaces = [
   {
     ...productMedia.keyboard,
-    label: "Write in any app",
-    detail: "The current keyboard, toolbar, and host-app integration on Android.",
+    label: "Type where you are",
+    detail: "SottoKey working inside a standard Android app.",
   },
   {
     ...productMedia.rewriteIdle,
-    label: "Choose the rewrite",
-    detail: "Fix, Professional, and Casual are the three current rewrite modes.",
+    label: "Choose your edit",
+    detail: "Fix, Professional, and Casual each have a clear purpose.",
   },
   {
     ...productMedia.rewriteDiff,
-    label: "Review a real diff",
-    detail: "A measured installed-model result, captured directly from the phone.",
+    label: "Review the difference",
+    detail: "A measured result from the installed model, captured on the phone.",
   },
   {
     ...productMedia.textEditing,
     label: "Edit precisely",
-    detail: "Selection, navigation, copy, paste, and delete stay within reach.",
+    detail: "Selection, cursor movement, copy, paste, and delete stay close.",
   },
   {
     ...productMedia.tools,
-    label: "Tools, one tap away",
-    detail: "Rewrite, editing, clips, undo, and redo share one compact toolbar.",
+    label: "Keep tools close",
+    detail: "Rewrite, text editing, clips, undo, and redo share one toolbar.",
   },
   {
     ...productMedia.emoji,
-    label: "Emoji, local",
-    detail: "Current recents, categories, and keyboard return controls.",
+    label: "Find the right emoji",
+    detail: "Recents, categories, and a quick return to typing.",
   },
 ];
 
 export const featureGroups = [
   {
     eyebrow: "01 / WRITE",
-    title: "A keyboard first.",
+    title: "First, it has to type well.",
     body:
-      "SottoKey does not ask you to leave the app, paste into a chatbot, or change how you write. It is a serious Android keyboard with local autocorrect, learned words, adaptive hitboxes, emoji, clipboard, text editing, and one-handed layouts.",
+      "SottoKey replaces your Android keyboard, not your writing routine. Local autocorrect, learned words, adaptive hitboxes, emoji, clipboard tools, text editing, and one-handed layouts handle the everyday work.",
     points: [
-      "English and Spanish typing",
+      "English and Spanish layouts and correction",
       "Local autocorrect and learned words",
-      "Glide typing and adaptive hitboxes",
-      "No typing path through a server",
+      "Glide typing in device validation",
+      "No server in the typing path",
     ],
   },
   {
     eyebrow: "02 / REVISE",
-    title: "Three precise ways to revise.",
+    title: "Fix the line, or change its tone.",
     body:
-      "Fix corrects errors. Professional makes a passage work-ready. Casual relaxes the language. The current app exposes exactly these three rewrite modes.",
+      "Fix cleans up grammar and spelling. Professional makes the wording more formal. Casual relaxes it. Each mode works on a selection or the paragraph around your cursor.",
     points: [
-      "Current paragraph or explicit selection",
-      "Deterministic mode contract",
-      "Protected spans and validation",
-      "Original text remains until acceptance",
+      "Selection or current paragraph",
+      "Fix, Professional, and Casual",
+      "Checks for changed numbers, links, and negation",
+      "Original text stays until you approve",
     ],
   },
   {
     eyebrow: "03 / REVIEW",
-    title: "Proofreading, not magic.",
+    title: "See the edit before it becomes yours.",
     body:
-      "The model can be wrong. SottoKey makes that visible. Deletions, insertions, Keep original, Accept edit, and Undo edit keep the final decision with the writer.",
+      "Small models sometimes choose the wrong word. SottoKey marks every insertion and deletion, then waits. Keep the original, accept the edit, or undo it immediately.",
     points: [
-      "Readable insert and delete marks",
-      "No silent full-sentence replacement",
-      "Explicit human acceptance",
-      "Immediate undo after applying",
+      "Clear insertion and deletion marks",
+      "No replacement before approval",
+      "Keep original or accept edit",
+      "Undo immediately after applying",
     ],
   },
   {
     eyebrow: "04 / PROTECT",
-    title: "Privacy enforced by Android.",
+    title: "No route to the internet.",
     body:
-      "The release app has no INTERNET permission. No account, no telemetry SDK, no cloud model, no remote logs. Password-class fields disable intelligence at the keyboard boundary.",
+      "The Android production build requests no INTERNET permission. There is no account, telemetry SDK, cloud model, or remote logging. Password-class fields disable suggestions, learning, rewriting, and clipboard capture.",
     points: [
       "No INTERNET permission",
-      "No analytics or account",
-      "No automatic text persistence",
+      "No account or analytics",
+      "Typed sentences are not saved automatically",
       "Cloud backup disabled",
     ],
   },
@@ -150,7 +150,7 @@ export const faqItems = [
   {
     question: "Does SottoKey send what I type to a server?",
     answer:
-      "No. The Android app requests no internet permission, and rewriting runs with a model packaged for the phone. The website demo uses pre-recorded, verified outputs and does not accept your text.",
+      "No. The Android production build requests no INTERNET permission, and rewriting uses a model packaged for the phone. This website shows a fixed, verified example and never asks for your text.",
   },
   {
     question: "Why does Android show a keyboard warning?",
@@ -160,7 +160,7 @@ export const faqItems = [
   {
     question: "Can the model make mistakes?",
     answer:
-      "Yes. Small on-device models can change wording incorrectly. SottoKey shows a diff and requires explicit acceptance. Numbers, URLs, negations, and other protected content are also validated.",
+      "Yes. A small on-device model can choose the wrong word or alter meaning. SottoKey shows every change and waits for your approval. It also checks numbers, URLs, negation, and other protected content, but those checks do not replace careful review.",
   },
   {
     question: "Does it work in password fields?",
@@ -170,12 +170,17 @@ export const faqItems = [
   {
     question: "How much storage does it use?",
     answer:
-      "The current bundled Q8 model payload is approximately 379 MB, plus the keyboard runtime and app. Distribution details may change before the public Play release.",
+      `The current ${productStatus.installedModel.quant} model payload is approximately ${productStatus.installedModel.payload}, plus the keyboard runtime and app. The final Google Play download and installed size may change before release.`,
   },
   {
-    question: "Does rewriting drain the battery?",
+    question: "How does rewriting affect battery life?",
     answer:
-      "The model runs only when you request a rewrite, never continuously while typing. Battery-per-rewrite and sustained thermal behavior remain part of the device validation plan.",
+      "A rewrite uses more power than ordinary typing because it runs the local model. The model runs only when you ask, never continuously while typing. Battery-per-rewrite and sustained thermal testing are still open, so SottoKey does not publish a battery estimate yet.",
+  },
+  {
+    question: "Does it rewrite Spanish?",
+    answer:
+      "Not reliably enough to promise yet. The keyboard supports Spanish layouts, dictionaries, and local correction, but the current rewrite model is English-focused and Spanish rewrite quality is still being evaluated.",
   },
   {
     question: "Is it available on iPhone?",
@@ -185,7 +190,7 @@ export const faqItems = [
   {
     question: "Can I try arbitrary text on this website?",
     answer:
-      "Not at launch. A server demo would send text over the network and blur the product's privacy story. The guided demo instead uses outputs generated by the real release model.",
+      "No. A live web rewrite would need a server and would not demonstrate the private Android product. The guided demo uses a verified result from the model installed on the test phone.",
   },
 ];
 

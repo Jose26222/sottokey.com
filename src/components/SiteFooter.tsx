@@ -8,7 +8,7 @@ const footerGroups = [
     links: [
       { href: "/demo", label: "Demo" },
       { href: "/features", label: "Features" },
-      { href: "/download", label: "Download" },
+      { href: "/download", label: "Google Play status" },
       { href: "/changelog", label: "Changelog" },
     ],
   },
@@ -56,7 +56,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="site-footer__bottom">
-        <p>© 2026 SottoKey. Android, quietly rewritten.</p>
+        <p>© 2026 SottoKey. A private keyboard for Android.</p>
         <Link href="/proof">
           Inspect the proof <ArrowUpRight aria-hidden="true" />
         </Link>

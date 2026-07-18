@@ -19,45 +19,45 @@ import { featureGroups, productSurfaces } from "@/data/site";
 export const metadata: Metadata = {
   title: "Features",
   description:
-    "Explore SottoKey's on-device rewriting, diff preview, private clipboard, bilingual typing, themes, and complete Android keyboard tools.",
+    "Explore SottoKey's on-device rewriting, visible edit review, bilingual typing, local clipboard tools, themes, and Android keyboard controls.",
 };
 
 const detailCards = [
   {
     icon: ScanText,
-    title: "Paragraph-aware rewriting",
+    title: "Rewrite the right passage",
     copy:
-      "SottoKey rewrites your exact selection or the current paragraph. Long paragraphs use an explicit sentence window within the 2,000-character model budget.",
+      "Select the exact text you want, or let SottoKey use the paragraph around your cursor. For long paragraphs, it clearly marks the smaller sentence window being revised.",
   },
   {
     icon: Languages,
-    title: "English + Spanish typing",
+    title: "English and Spanish typing",
     copy:
-      "Both dictionaries remain active for corrections while the selected language leads the layout and ranking.",
+      "Both dictionaries contribute corrections while your selected language leads the layout and ranking. The rewrite model remains English-focused.",
   },
   {
     icon: Clipboard,
-    title: "Private clipboard",
+    title: "A local clipboard",
     copy:
-      "Recent clips stay in memory and expire. Only snippets you explicitly save persist in app-private storage.",
+      "Recent clips stay in memory and expire. Only snippets you deliberately save remain in app-private storage.",
   },
   {
     icon: Palette,
-    title: "Light, dark, OLED",
+    title: "Light, dark, and OLED",
     copy:
-      "Graphite, paper, pure-black OLED, and dynamic color treatments share the same precision keyboard geometry.",
+      "Graphite, paper, pure-black OLED, and dynamic color themes keep the same keyboard geometry.",
   },
   {
     icon: ShieldCheck,
-    title: "Sensitive-field shutdown",
+    title: "Private fields stay private",
     copy:
-      "Password-class fields disable suggestions, learning, rewrite, and clipboard capture at the keyboard boundary.",
+      "Password-class fields disable suggestions, learning, rewriting, and clipboard capture at the keyboard boundary.",
   },
   {
     icon: BotOff,
-    title: "No AI decoration",
+    title: "No edit without review",
     copy:
-      "The interface uses proofreader marks and direct controls—not chatbot bubbles, sparkles, or confidence theatre.",
+      "SottoKey marks insertions and deletions, keeps your original text in place, and waits for a clear decision.",
   },
 ];
 
@@ -65,7 +65,7 @@ export default function FeaturesPage() {
   return (
     <>
       <PageHero
-        eyebrow="THE COMPLETE KEYBOARD"
+        eyebrow="THE FULL KEYBOARD"
         title={
           <>
             Built to type.
@@ -73,7 +73,7 @@ export default function FeaturesPage() {
             Designed to revise.
           </>
         }
-        body="The model is only one layer. SottoKey also has to be the keyboard you trust for every normal sentence, correction, emoji, cursor movement, and clipboard action."
+        body="Rewriting is one part of SottoKey. The rest is the keyboard you use for ordinary typing: corrections, emoji, cursor movement, clipboard work, and the small adjustments that make it feel like yours."
       />
 
       <section className="feature-chapters section section--paper">
@@ -105,12 +105,12 @@ export default function FeaturesPage() {
       <section className="feature-detail section section--dark">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">BUILT INTO THE EDGES</p>
-            <h2>The details that make privacy usable.</h2>
+            <p className="eyebrow">BUILT INTO THE DETAILS</p>
+            <h2>Privacy that holds up during daily use.</h2>
           </div>
           <p>
-            Privacy is not just a missing network permission. It changes what
-            the keyboard remembers, captures, renders, and disables.
+            Privacy changes what the keyboard remembers, what it keeps only in
+            memory, and what it turns off in sensitive fields.
           </p>
         </div>
         <div className="feature-detail__grid">
@@ -141,11 +141,11 @@ export default function FeaturesPage() {
         </div>
         <div className="design-language__copy">
           <p className="eyebrow">THE GALLEY SYSTEM</p>
-          <h2>A typesetter&apos;s instrument, not a chat toy.</h2>
+          <h2>A proofreader&apos;s interface.</h2>
           <p>
-            Graphite surfaces, one deep ink accent, red strike marks, green
-            insertions, mechanical motion, and immediate key response create a
-            visual language grounded in proofreading.
+            Graphite surfaces, a deep ink accent, red strike marks, green
+            insertions, and responsive key movement keep the visual language
+            grounded in editing rather than conversation.
           </p>
           <Link href="/demo">
             See it in motion <ArrowRight aria-hidden="true" />

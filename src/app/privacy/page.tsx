@@ -23,25 +23,25 @@ export const metadata: Metadata = {
 const guarantees = [
   {
     icon: Network,
-    title: "No network permission",
+    title: "No route to the internet",
     copy:
-      "The Android release manifest does not request INTERNET. There is no server component, analytics SDK, advertising SDK, remote logging, or update phone-home inside the keyboard.",
+      "The Android production manifest does not request INTERNET. The keyboard contains no server client, analytics SDK, advertising SDK, remote logging, or background update check.",
   },
   {
     icon: EyeOff,
-    title: "Typed text is ephemeral",
+    title: "Temporary text stays temporary",
     copy:
       "The composing buffer lives in memory for the current word. A rewrite target lives for one request. SottoKey does not automatically write typed sentences to disk.",
   },
   {
     icon: KeyRound,
-    title: "Sensitive fields go dark",
+    title: "Sensitive fields switch off extras",
     copy:
       "Password-class inputs disable suggestions, learning, rewriting, and clipboard capture. Incognito flags disable personalized learning automatically.",
   },
   {
     icon: Database,
-    title: "Local data is visible",
+    title: "Local data has controls",
     copy:
       "Preferences, learned words, touch offsets, local latency metrics, and explicitly saved snippets live in app-private storage and can be removed from settings.",
   },
@@ -71,11 +71,11 @@ export default function PrivacyPage() {
             Not a promise in small type.
           </>
         }
-        body="SottoKey is built so the Android app cannot transmit what you type. This page explains what the keyboard processes, what it stores locally, what it disables, and the narrow limits of those guarantees."
+        body="SottoKey has no network path for what you type. Like every keyboard, it exchanges text with the app you are typing in; it does not send that text off the device. This page explains what the keyboard processes, stores locally, and disables."
         aside={
           <div className="hero-proof-note">
             <ShieldCheck aria-hidden="true" />
-            <span>Android app: no data collected or shared</span>
+            <span>Android app: no off-device network path</span>
           </div>
         }
       />
@@ -88,7 +88,7 @@ export default function PrivacyPage() {
         <div className="section-heading section-heading--paper">
           <div>
             <p className="eyebrow">THE GUARANTEES</p>
-            <h2>What the keyboard can—and cannot—do.</h2>
+            <h2>What stays local, and what stays off.</h2>
           </div>
           <p>
             These statements describe the Android application. Website
@@ -124,9 +124,9 @@ export default function PrivacyPage() {
             stay untouched.
           </p>
           <p>
-            The model processes that text in memory. The editor validates the
-            result, computes a diff, and waits for you to choose Keep original
-            or Accept edit.
+            The model processes that text in memory. SottoKey checks the result,
+            marks the changes, and waits for you to choose Keep original or
+            Accept edit.
           </p>
         </article>
 
@@ -190,11 +190,11 @@ export default function PrivacyPage() {
 
       <section className="privacy-contact section section--dark">
         <p className="eyebrow">QUESTIONS OR CONCERNS</p>
-        <h2>Privacy questions deserve a direct answer.</h2>
+        <h2>Privacy questions should have a direct answer.</h2>
         <p>
-          The permanent privacy contact channel will be published before public
-          Play release. Until then, the technical proof and current limitations
-          remain available on this site.
+          The permanent privacy contact channel will be published before the
+          public Google Play release. Until then, the technical proof and
+          current limitations remain available on this site.
         </p>
         <div className="button-row">
           <Link href="/proof" className="button button--light">

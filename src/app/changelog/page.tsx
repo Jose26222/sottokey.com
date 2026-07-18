@@ -20,9 +20,9 @@ const releases = [
   {
     version: productStatus.app.version,
     date: "July 2026",
-    status: "CURRENT SOURCE",
+    status: "CURRENT DEVICE BUILD",
     summary:
-      "A major keyboard-completeness and bilingual typing pass ahead of public store preparation.",
+      "Expanded the everyday keyboard, bilingual typing, and editing tools ahead of Google Play preparation.",
     groups: [
       {
         icon: Keyboard,
@@ -119,7 +119,7 @@ export default function ChangelogPage() {
             What still needs proof.
           </>
         }
-        body="SottoKey's changelog includes the product surfaces, model package, device evidence, privacy guarantees, and release blockers—not just visible interface changes."
+        body="This changelog covers the keyboard, model package, device evidence, privacy work, and open release checks—not only the visible interface."
       />
 
       <section className="changelog section section--paper">

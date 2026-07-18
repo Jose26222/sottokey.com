@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-import { productMedia } from "../src/data/site";
+import { productMedia, productStatus } from "../src/data/site";
 
 async function warmLazyMedia(page: import("@playwright/test").Page) {
   await page.evaluate(async () => {
@@ -58,7 +58,7 @@ for (const route of routes) {
   });
 }
 
-test("guided demo switches through live device states", async ({ page }) => {
+test("guided demo switches through captured device states", async ({ page }) => {
   await page.goto("/demo");
   const guidedDemo = page.locator(".guided-demo").first();
   const sequence = page.getByRole("group", { name: "Correction sequence" });
@@ -76,8 +76,11 @@ test("guided demo switches through live device states", async ({ page }) => {
   await expect(
     sequence.getByRole("button").filter({ hasText: "Write" }),
   ).toBeVisible();
-  await expect(page.getByText("A replacement model is still in evaluation.")).toBeVisible(
-  );
+  await expect(
+    page.getByText("This example does not predict the result for other text.", {
+      exact: false,
+    }),
+  ).toBeVisible();
 });
 
 test("published product media preserves device geometry and budget", async ({
@@ -123,8 +126,53 @@ test("mobile navigation exposes every core route", async ({ page }, testInfo) =>
     mobileNavigation.getByRole("link", { name: /Privacy/, exact: false }),
   ).toBeVisible();
   await expect(
-    mobileNavigation.getByRole("link", { name: "Android status", exact: true }),
+    mobileNavigation.getByRole("link", {
+      name: "Google Play status",
+      exact: true,
+    }),
   ).toBeVisible();
+});
+
+test("Google Play destination never invents availability", async ({ page }) => {
+  await page.goto("/download");
+  const storeCta = page.locator("[data-play-store-cta]");
+
+  await expect(storeCta).toBeVisible();
+  if (productStatus.googlePlay.href) {
+    await expect(storeCta).toHaveAttribute("href", productStatus.googlePlay.href);
+    await expect(storeCta).toHaveText(productStatus.googlePlay.liveLabel, {
+      useInnerText: true,
+    });
+  } else {
+    await expect(storeCta).toHaveAttribute("aria-disabled", "true");
+    await expect(storeCta).not.toHaveAttribute("href", /.+/);
+    await expect(storeCta).toContainText(productStatus.googlePlay.pendingLabel);
+  }
+});
+
+test("privacy copy distinguishes host-app text from network transmission", async ({
+  page,
+}) => {
+  await page.goto("/privacy");
+
+  await expect(
+    page.getByText("Like every keyboard, it exchanges text with the app", {
+      exact: false,
+    }),
+  ).toBeVisible();
+  await expect(
+    page.getByText("Android app: no off-device network path"),
+  ).toBeVisible();
+  await expect(page.locator("body")).not.toContainText(
+    "no data transmitted or shared",
+  );
+});
+
+test("public pages do not expose a price before launch", async ({ page }) => {
+  for (const route of routes) {
+    await page.goto(route);
+    await expect(page.locator("body")).not.toContainText(/\$\s*\d/);
+  }
 });
 
 test("capture visual review set", async ({ page }, testInfo) => {

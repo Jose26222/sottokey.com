@@ -10,20 +10,21 @@ import {
   Settings2,
   Smartphone,
 } from "lucide-react";
+import { GooglePlayCta } from "@/components/GooglePlayCta";
 import { PageHero } from "@/components/PageHero";
 import { productStatus, releaseFacts } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Download",
+  title: "Google Play Release",
   description:
-    "SottoKey availability, Android requirements, storage details, setup sequence, and release status.",
+    "Check SottoKey's Google Play status, Android requirements, storage details, setup sequence, and current release stage.",
 };
 
 const steps = [
   {
     icon: Download,
     title: "Install",
-    copy: "Install the verified Play build when the public listing opens.",
+    copy: "Install the verified build when the Google Play listing opens.",
   },
   {
     icon: KeyRound,
@@ -46,15 +47,15 @@ export default function DownloadPage() {
   return (
     <>
       <PageHero
-        eyebrow="ANDROID RELEASE"
+        eyebrow="GOOGLE PLAY RELEASE"
         title={
           <>
-            Built for Android.
+            Running on Android.
             <br />
-            Preparing for Play.
+            Not on Play yet.
           </>
         }
-        body={`SottoKey ${productStatus.app.version} is running on physical Android hardware. The installed v3 Q8 model remains the measured evidence package while its replacement is evaluated; public Play availability still follows release packaging and closed-track review.`}
+        body={`SottoKey ${productStatus.app.version} is a working private device beta. Before the Google Play listing opens, the signed release still needs final packaging, closed-track validation, and store review.`}
         aside={
           <div className="availability-pill">
             <span />
@@ -77,9 +78,14 @@ export default function DownloadPage() {
           </div>
         </div>
         <div className="download-card__status">
-          <span>PUBLIC PLAY RELEASE</span>
-          <strong>Coming after closed-track validation</strong>
-          <Link href="/changelog">
+          <span>GOOGLE PLAY</span>
+          <strong>{productStatus.availability}</strong>
+          <p>
+            The final listing URL has not been supplied. This destination stays
+            disabled until the verified Google Play URL is added.
+          </p>
+          <GooglePlayCta />
+          <Link href="/changelog" className="download-card__secondary-link">
             Follow release progress <ArrowRight aria-hidden="true" />
           </Link>
         </div>
@@ -89,19 +95,19 @@ export default function DownloadPage() {
         <div className="section-heading section-heading--paper">
           <div>
             <p className="eyebrow">REQUIREMENTS</p>
-            <h2>What the phone needs.</h2>
+            <h2>What SottoKey needs from your phone.</h2>
           </div>
           <p>
-            Final Play compatibility will be published with the signed release.
-            These are the current engineering targets.
+            These are the current build requirements. The final supported
+            device list will come with the signed Google Play release.
           </p>
         </div>
         <div className="requirements__grid">
           <article>
             <Smartphone aria-hidden="true" />
             <span>PLATFORM</span>
-            <strong>Android · arm64</strong>
-            <p>Modern 64-bit Android phones are the current release target.</p>
+            <strong>{productStatus.requirements.android}</strong>
+            <p>{productStatus.requirements.architecture} is required.</p>
           </article>
           <article>
             <PackageCheck aria-hidden="true" />
@@ -113,7 +119,7 @@ export default function DownloadPage() {
             <KeyRound aria-hidden="true" />
             <span>PERMISSIONS</span>
             <strong>No INTERNET</strong>
-            <p>Optional features may request narrowly scoped local access.</p>
+            <p>The production manifest does not request network access.</p>
           </article>
         </div>
       </section>
@@ -122,7 +128,7 @@ export default function DownloadPage() {
         <div className="section-heading section-heading--paper">
           <div>
             <p className="eyebrow">FOUR-STEP SETUP</p>
-            <h2>Android makes keyboard choice explicit.</h2>
+            <h2>Four clear steps, all on the phone.</h2>
           </div>
           <p>
             The app guides each system step and explains the generic Android
@@ -146,14 +152,14 @@ export default function DownloadPage() {
 
       <section className="download-explainer section section--dark">
         <div>
-          <p className="eyebrow">WHY THE DOWNLOAD IS LARGER</p>
-          <h2>The model comes with the keyboard because the cloud does not.</h2>
+          <p className="eyebrow">WHY THE MODEL LIVES IN THE APP</p>
+          <h2>The storage cost of keeping every rewrite local.</h2>
         </div>
         <div>
           <p>
-            A typical cloud writing app keeps its model somewhere else. SottoKey
-            packages a compact model for the device. That costs storage, but it
-            removes a network dependency from every rewrite.
+            Cloud writing tools keep their models on a server. SottoKey packages
+            its model for your phone. That uses more storage, but every rewrite
+            works without a network connection or account.
           </p>
           <ul>
             <li>
@@ -174,17 +180,17 @@ export default function DownloadPage() {
 
       <section className="release-follow section section--dark">
         <p className="eyebrow">FOLLOW THE RELEASE</p>
-        <h2>See exactly what is done—and what is not.</h2>
+        <h2>Release work, in plain view.</h2>
         <p>
-          The changelog tracks product, model, performance, and release-readiness
-          changes without pretending the public store launch is already open.
+          The changelog separates finished product work from open device tests
+          and Google Play preparation.
         </p>
         <div className="button-row">
           <Link href="/changelog" className="button button--light">
             Open changelog <ArrowRight aria-hidden="true" />
           </Link>
           <Link href="/demo" className="button button--ghost">
-            Try the verified demo
+            See the device demo
           </Link>
         </div>
       </section>

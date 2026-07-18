@@ -7,7 +7,7 @@ export function PrivacyPath() {
     <div className="privacy-path">
       <div className="privacy-path__flow">
         <article className="privacy-path__node privacy-path__sentence">
-          <span>01 / SENTENCE</span>
+          <span>01 / YOUR TEXT</span>
           <p>The meeting got moved to 3pm.</p>
         </article>
 
@@ -17,7 +17,7 @@ export function PrivacyPath() {
           <Keyboard aria-hidden="true" />
           <span>02 / KEYBOARD</span>
           <strong>SottoKey</strong>
-          <small>Bounded text only</small>
+          <small>Selection or bounded paragraph</small>
         </article>
 
         <span className="privacy-path__link" aria-hidden="true" />
@@ -25,7 +25,7 @@ export function PrivacyPath() {
         <article className="privacy-path__node privacy-path__model">
           <Cpu aria-hidden="true" />
           <span>03 / LOCAL MODEL</span>
-          <strong>Runs here</strong>
+          <strong>Rewrites here</strong>
           <small>Inside the app process</small>
         </article>
 
@@ -42,7 +42,7 @@ export function PrivacyPath() {
         <div className="privacy-path__blocked">
           <span>NO NETWORK PATH</span>
           <WifiOff aria-hidden="true" />
-          <strong>Disconnected by Android</strong>
+          <strong>Blocked by the app manifest</strong>
           <small>INTERNET permission absent</small>
         </div>
       </div>

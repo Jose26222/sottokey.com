@@ -26,7 +26,8 @@ export default function TermsPage() {
         <article>
           <h2>1. Informational status</h2>
           <p>
-            This website describes SottoKey during release preparation.
+            This website describes SottoKey while the Google Play release is in
+            preparation.
             Availability, compatibility, feature status, model choice, package
             size, and performance may change before the signed public release.
             The changelog identifies the current evidence.
@@ -61,9 +62,9 @@ export default function TermsPage() {
         <article>
           <h2>5. Availability and warranties</h2>
           <p>
-            The website is provided on an as-available basis. Early product
-            information may contain errors. Nothing here creates a warranty
-            beyond rights that cannot legally be excluded.
+            The website is provided on an as-available basis. Pre-release
+            product information may contain errors. Nothing here creates a
+            warranty beyond rights that cannot legally be excluded.
           </p>
         </article>
         <article>

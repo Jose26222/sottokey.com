@@ -39,9 +39,9 @@ export default function ProofPage() {
         eyebrow="TECHNICAL PROOF"
         title={
           <>
-            Don&apos;t trust the copy.
+            Read the claim.
             <br />
-            Inspect the construction.
+            Then inspect the build.
           </>
         }
         body="The strongest privacy claim is not a sentence on this site. It is the missing Android permission in the release package, combined with a local runtime and a model that never needs a network path."
@@ -76,7 +76,7 @@ export default function ProofPage() {
         <div className="section-heading section-heading--paper">
           <div>
             <p className="eyebrow">PROOF 02 / REQUEST PATH</p>
-            <h2>Every step stays inside the application process.</h2>
+            <h2>Every rewrite stays inside the app process.</h2>
           </div>
           <p>
             The keyboard captures your exact selection or a bounded paragraph
@@ -91,7 +91,7 @@ export default function ProofPage() {
             ["03", "Local model", "llama.cpp CPU runtime + verified GGUF"],
             ["04", "Validator", "Reject unsafe or malformed changes"],
             ["05", "Visible diff", "Insertions and deletions, no silent replace"],
-            ["06", "Human gate", "Keep original or Accept edit"],
+            ["06", "Your decision", "Keep original or Accept edit"],
           ].map(([number, title, copy], index) => (
             <article key={number}>
               <span>{number}</span>
@@ -122,7 +122,7 @@ export default function ProofPage() {
             [
               Box,
               "APP UI",
-              releaseFacts.appVersion,
+              `v${releaseFacts.appVersion}`,
               `${productStatus.app.state} · captured ${productStatus.app.capturedAt}`,
             ],
             [
@@ -151,7 +151,7 @@ export default function ProofPage() {
         <div className="section-heading section-heading--paper">
           <div>
             <p className="eyebrow">PROOF 04 / QUALITY BOUNDARIES</p>
-            <h2>Honest enough to show the failure modes.</h2>
+            <h2>The preview exists for a reason.</h2>
           </div>
           <p>
             The preview is required because the model can still drift. The
@@ -163,7 +163,7 @@ export default function ProofPage() {
         <div className="quality-proof__columns">
           <article className="quality-proof__positive">
             <ShieldCheck aria-hidden="true" />
-            <h3>What is enforced</h3>
+            <h3>Checks around the model</h3>
             <ul>
               <li>
                 <Check aria-hidden="true" /> URLs and protected spans are checked.
@@ -186,7 +186,7 @@ export default function ProofPage() {
           </article>
           <article className="quality-proof__warning">
             <TriangleAlert aria-hidden="true" />
-            <h3>What remains imperfect</h3>
+            <h3>Limits still under review</h3>
             <ul>
               <li>Meaning corruption missed the installed model&apos;s gate.</li>
               <li>Spanish identity behavior also missed its release gate.</li>

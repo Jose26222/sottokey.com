@@ -8,28 +8,28 @@ import { ProductFilm } from "@/components/ProductFilm";
 import { productStatus, productSurfaces } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Real Product Demo",
+  title: "Product Demo",
   description:
-    "See verified SottoKey model outputs and real Android app surfaces without sending any text to a server.",
+    "See a verified SottoKey rewrite and real Android app screens without sending text to a server.",
 };
 
 export default function DemoPage() {
   return (
     <>
       <PageHero
-        eyebrow="REAL PRODUCT DEMO"
+        eyebrow="CAPTURED PRODUCT DEMO"
         title={
           <>
-            Watch the app.
+            Watch SottoKey work.
             <br />
-            Inspect the output.
+            Then inspect the result.
           </>
         }
-        body={`No live server, generated phone, or reconstructed keyboard. This sequence was captured directly from SottoKey ${productStatus.app.version} on the connected Android device using its installed v3 Q8 evidence model.`}
+        body={`Every screen in this sequence comes from SottoKey ${productStatus.app.version} running on a physical Android phone. The correction was produced by the installed ${productStatus.installedModel.name} ${productStatus.installedModel.quant} model, not a web service.`}
         aside={
           <div className="hero-proof-note">
             <ShieldCheck aria-hidden="true" />
-            <span>Verified examples · No visitor text collected</span>
+            <span>Verified example · No visitor text requested</span>
           </div>
         }
       />
@@ -42,20 +42,20 @@ export default function DemoPage() {
         <div className="section-heading section-heading--paper">
           <div>
             <p className="eyebrow">HOW THIS DEMO WORKS</p>
-            <h2>Interaction without pretending there is a server.</h2>
+            <h2>A product demo, not a web rewrite box.</h2>
           </div>
           <p>
-            The phone sequence and its result come from one live device session.
-            App UI and installed-model evidence are versioned separately so a
-            future model cannot silently inherit these claims.
+            The screens and result come from one device session. App captures
+            and model evidence are versioned separately, so this example always
+            stays tied to the build that produced it.
           </p>
         </div>
         <div className="demo-method__steps">
           {[
-            ["01", "Capture", "Record the current app on the connected phone."],
-            ["02", "Rewrite", "Run one explicit request on the installed model."],
-            ["03", "Verify", "Check the visible diff and accepted text."],
-            ["04", "Publish", "Attach app, model, device, date, and checksums."],
+            ["01", "Record", "Capture the current app on the test phone."],
+            ["02", "Run", "Make one Fix request with the installed model."],
+            ["03", "Review", "Check the visible diff and accepted text."],
+            ["04", "Document", "Attach the app, model, device, date, and hashes."],
           ].map(([number, title, copy]) => (
             <article key={number}>
               <span>{number}</span>
@@ -69,8 +69,8 @@ export default function DemoPage() {
       <section className="section section--dark demo-film">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">THE PRODUCT FILM</p>
-            <h2>Six current surfaces. One real keyboard.</h2>
+            <p className="eyebrow">THE PRODUCT TOUR</p>
+            <h2>Six current screens. One working keyboard.</h2>
           </div>
           <div className="film-badge">
             <Film aria-hidden="true" />
@@ -84,11 +84,11 @@ export default function DemoPage() {
         <div className="section-heading section-heading--paper">
           <div>
             <p className="eyebrow">CONTACT SHEET</p>
-            <h2>Pause on the details.</h2>
+            <h2>Look as closely as you like.</h2>
           </div>
           <p>
-            Current app {productStatus.app.version} captures from Android. No
-            reconstructed marketing interface or AI-generated screen text.
+            Captures from app {productStatus.app.version} on Android, shown
+            without reconstructed interface elements or generated screen text.
           </p>
         </div>
         <div className="contact-sheet__grid">

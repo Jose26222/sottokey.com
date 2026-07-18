@@ -16,14 +16,14 @@ export function ClosingCta() {
         Keep the final word.
       </h2>
       <p>
-        Fix grammar, adjust tone, review the change, and move on.
+        Fix the wording, check the change, and carry on typing.
       </p>
       <div className="button-row">
-        <Link href="/download" className="button button--light">
-          Follow the release <ArrowRight aria-hidden="true" />
+        <Link href="/demo" className="button button--light">
+          See SottoKey work <ArrowRight aria-hidden="true" />
         </Link>
-        <Link href="/proof" className="button button--ghost">
-          <ShieldCheck aria-hidden="true" /> Inspect the proof
+        <Link href="/download" className="button button--ghost">
+          <ShieldCheck aria-hidden="true" /> Google Play status
         </Link>
       </div>
     </section>

@@ -40,3 +40,8 @@ The launch site intentionally has no live inference endpoint. Its interactive
 demo uses a verified output from the currently installed v3-final Q8 evidence
 model; replacement models remain labeled as evaluation-only until installed and
 measured.
+
+Google Play availability is also centralized in
+`productStatus.googlePlay`. Leave its URL null until the stakeholder supplies
+the verified public listing; the site will render an explicit unavailable
+placeholder instead of inventing a destination.

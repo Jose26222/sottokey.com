@@ -75,9 +75,9 @@ export default function LicensesPage() {
           <div>
             <h2>Studio media</h2>
             <p>
-              The website&apos;s three campaign renders were generated and
-              art-directed specifically for this project. Product screenshots
-              are captures of the working SottoKey Android app.
+              Campaign renders were generated and art-directed for this
+              project. Every readable product screen is a capture of the
+              working SottoKey Android app.
             </p>
           </div>
         </article>

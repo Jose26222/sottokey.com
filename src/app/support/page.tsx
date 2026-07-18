@@ -52,12 +52,12 @@ export default function SupportPage() {
         eyebrow="SUPPORT"
         title={
           <>
-            Clear answers.
+            Useful answers.
             <br />
             No support maze.
           </>
         }
-        body="SottoKey is still preparing for public release, but the product behavior and privacy architecture are documented now. Start with setup, model verification, or the questions users should ask any keyboard."
+        body="SottoKey is still preparing for public release, but its setup, storage, privacy behavior, and known limits are documented now. Start with the part you need."
         aside={
           <div className="hero-proof-note">
             <LifeBuoy aria-hidden="true" />
@@ -93,7 +93,7 @@ export default function SupportPage() {
       <section className="support-quickstart section section--dark">
         <div>
           <p className="eyebrow">QUICK START</p>
-          <h2>From install to first private rewrite.</h2>
+          <h2>From installation to your first rewrite.</h2>
         </div>
         <ol>
           <li>
@@ -131,7 +131,7 @@ export default function SupportPage() {
         <div className="section-heading section-heading--paper">
           <div>
             <p className="eyebrow">FREQUENTLY ASKED</p>
-            <h2>The questions that matter before installation.</h2>
+            <h2>Read this before you install.</h2>
           </div>
           <p>
             About network access, Android&apos;s warning, model mistakes,
@@ -143,10 +143,11 @@ export default function SupportPage() {
 
       <section className="support-contact section section--dark">
         <p className="eyebrow">CONTACT</p>
-        <h2>The permanent support inbox opens with the public beta.</h2>
+        <h2>Direct support will open with the public beta.</h2>
         <p>
-          Until then, release status and known limitations are maintained
-          publicly here so early testers do not have to guess.
+          The support address will be published before the Google Play release.
+          Until then, this site keeps the current status and known limitations
+          visible.
         </p>
         <div className="button-row">
           <Link href="/changelog" className="button button--light">

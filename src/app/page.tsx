@@ -32,15 +32,15 @@ export default function Home() {
               <span>Keep them yours.</span>
             </h1>
             <p className="home-hero__lede">
-              Fix grammar and change tone directly where you type. Review the
-              difference before anything replaces your text.
+              Fix grammar or change tone in the app you are already using.
+              SottoKey shows every change and waits for your approval.
             </p>
             <div className="button-row">
-              <Link href="/download" className="button button--light">
-                Release status <ArrowRight aria-hidden="true" />
+              <Link href="/demo" className="button button--light">
+                See how it works <ArrowRight aria-hidden="true" />
               </Link>
-              <Link href="/demo" className="button button--ghost">
-                Watch the live capture
+              <Link href="/download" className="button button--ghost">
+                Google Play status
               </Link>
             </div>
           </div>
@@ -63,7 +63,7 @@ export default function Home() {
           </div>
         </div>
         <a href="#proof" className="home-hero__scroll">
-          <span>Discover SottoKey</span>
+          <span>Why SottoKey</span>
           <ArrowDown aria-hidden="true" />
         </a>
       </section>
@@ -75,12 +75,12 @@ export default function Home() {
       <section className="demo-section section section--dark">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">TRY THE CORE INTERACTION</p>
-            <h2>Fix a sentence without leaving the app.</h2>
+            <p className="eyebrow">THE CORE INTERACTION</p>
+            <h2>Edit without breaking your flow.</h2>
           </div>
           <p>
-            Choose a real model result, inspect the changes, and accept only
-            when it reads right.
+            Follow one measured correction from the original text to the final
+            review.
           </p>
         </div>
         <GuidedDemo />
@@ -90,13 +90,13 @@ export default function Home() {
         <PrivacyPath />
         <div className="privacy-cinema__copy">
           <div>
-            <p className="eyebrow">PRIVACY, MADE PHYSICAL</p>
+            <p className="eyebrow">PRIVACY BY CONSTRUCTION</p>
             <h2>Your sentence stays on your phone.</h2>
           </div>
           <div>
             <p>
-              Android gives the release app no INTERNET permission. The model,
-              review, and final edit all happen inside the device.
+              The Android production build requests no INTERNET permission.
+              The model, review, and final edit all happen inside the device.
             </p>
             <div className="text-links">
               <Link href="/proof">
@@ -111,11 +111,10 @@ export default function Home() {
         <div className="section-heading section-heading--paper">
           <div>
             <p className="eyebrow">MORE THAN A REWRITE BUTTON</p>
-            <h2>A complete keyboard with one focused AI tool.</h2>
+            <h2>A full Android keyboard, with rewriting built in.</h2>
           </div>
           <p>
-            Type, revise, and review without changing apps or surrendering
-            control.
+            Type, revise, and review without moving your text into another app.
           </p>
         </div>
         <div className="feature-editorial__grid">
@@ -135,7 +134,7 @@ export default function Home() {
           ))}
         </div>
         <Link href="/features" className="editorial-link">
-          Explore the complete keyboard <ArrowRight aria-hidden="true" />
+          Explore every keyboard tool <ArrowRight aria-hidden="true" />
         </Link>
       </section>
 
@@ -143,11 +142,11 @@ export default function Home() {
         <div className="section-heading">
           <div>
             <p className="eyebrow">CAPTURED ON ANDROID</p>
-            <h2>The real product, one surface at a time.</h2>
+            <h2>The working product, one surface at a time.</h2>
           </div>
           <p>
-            Pause the film and inspect typing, rewriting, review, editing,
-            tools, and emoji.
+            Pause anywhere to inspect typing, rewriting, review, editing,
+            clipboard tools, and emoji.
           </p>
         </div>
         <ProductFilm />
@@ -157,10 +156,11 @@ export default function Home() {
         <div className="section-heading section-heading--paper">
           <div>
             <p className="eyebrow">MEASURED ON REAL HARDWARE</p>
-            <h2>Fast enough to stay in the flow.</h2>
+            <h2>Measured on the phone, not projected.</h2>
           </div>
           <p>
-            Installed-model measurements, not estimates for every Android phone.
+            Results from the installed model on one Snapdragon 855 test device,
+            not a promise for every Android phone.
           </p>
         </div>
         <div className="release-status-band">
@@ -170,14 +170,17 @@ export default function Home() {
             <small>{productStatus.app.state}</small>
           </div>
           <div>
-            <span>INSTALLED MODEL</span>
+            <span>MEASURED MODEL</span>
             <strong>{productStatus.installedModel.name}</strong>
-            <small>{productStatus.installedModel.qualityGate}</small>
+            <small>
+              {productStatus.installedModel.quant} · measured{" "}
+              {productStatus.installedModel.measuredAt}
+            </small>
           </div>
           <div>
-            <span>NEXT MODEL</span>
-            <strong>{productStatus.nextModel.state}</strong>
-            <small>Not represented until packaged and measured</small>
+            <span>GOOGLE PLAY</span>
+            <strong>{productStatus.availability}</strong>
+            <small>{productStatus.releaseStage}</small>
           </div>
         </div>
         <div className="evidence__grid">
@@ -208,7 +211,7 @@ export default function Home() {
           </div>
         </div>
         <Link href="/proof" className="editorial-link">
-          Read the complete evidence <ArrowRight aria-hidden="true" />
+          See the measurements and limits <ArrowRight aria-hidden="true" />
         </Link>
       </section>
 
