@@ -1,4 +1,5 @@
 import { Cpu, Keyboard, WifiOff } from "lucide-react";
+import { productMedia } from "@/data/site";
 import { DeviceFrame } from "./DeviceFrame";
 
 export function PrivacyPath() {
@@ -32,8 +33,8 @@ export function PrivacyPath() {
 
         <div className="privacy-path__phone">
           <DeviceFrame
-            src="/product/live-rewrite-diff.webp"
-            alt="Current SottoKey screen reviewing a local correction"
+            src={productMedia.rewriteDiff.src}
+            alt={productMedia.rewriteDiff.alt}
           />
           <span>04 / YOUR PHONE</span>
         </div>

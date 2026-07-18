@@ -32,6 +32,10 @@ horizontal overflow, and produces visual-review captures in
 - App/model/site synchronization: `docs/PRODUCT-UPDATE-RUNBOOK.md`
 - Deployment binding: `.openai/hosting.json`
 
+`docs/PRODUCT-UPDATE-RUNBOOK.md` also defines the central media registry,
+same-version capture policy, automated image budgets, and the deferred
+interactive-hero contract.
+
 The launch site intentionally has no live inference endpoint. Its interactive
 demo uses a verified output from the currently installed v3-final Q8 evidence
 model; replacement models remain labeled as evaluation-only until installed and

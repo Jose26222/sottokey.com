@@ -8,6 +8,7 @@ import {
   Wrench,
 } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
+import { productStatus } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Changelog",
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
 
 const releases = [
   {
-    version: "0.4.0",
+    version: productStatus.app.version,
     date: "July 2026",
     status: "CURRENT SOURCE",
     summary:

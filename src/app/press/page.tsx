@@ -38,7 +38,7 @@ export default function PressPage() {
         aside={
           <div className="hero-proof-note">
             <FileText aria-hidden="true" />
-            <span>Facts last reviewed · 18 July 2026</span>
+            <span>Facts last reviewed · {productStatus.lastReviewed}</span>
           </div>
         }
       />
@@ -126,9 +126,9 @@ export default function PressPage() {
             <h2>Captured from the working Android app.</h2>
           </div>
           <p>
-            Every screen reflects the 0.4.0 device UI. The rewrite frame is
-            explicitly tied to the installed v3 evidence model, not the model
-            still in evaluation.
+            Every screen reflects the {productStatus.app.version} device UI.
+            The rewrite frame is explicitly tied to the installed v3 evidence
+            model, not the model still in evaluation.
           </p>
         </div>
         <div className="press-screens__grid">

@@ -5,7 +5,7 @@ import { ClosingCta } from "@/components/ClosingCta";
 import { GuidedDemo } from "@/components/GuidedDemo";
 import { PageHero } from "@/components/PageHero";
 import { ProductFilm } from "@/components/ProductFilm";
-import { productSurfaces } from "@/data/site";
+import { productStatus, productSurfaces } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Real Product Demo",
@@ -25,7 +25,7 @@ export default function DemoPage() {
             Inspect the output.
           </>
         }
-        body="No live server, generated phone, or reconstructed keyboard. This sequence was captured directly from SottoKey 0.4.0 on the connected Android device using its installed v3 Q8 evidence model."
+        body={`No live server, generated phone, or reconstructed keyboard. This sequence was captured directly from SottoKey ${productStatus.app.version} on the connected Android device using its installed v3 Q8 evidence model.`}
         aside={
           <div className="hero-proof-note">
             <ShieldCheck aria-hidden="true" />
@@ -87,8 +87,8 @@ export default function DemoPage() {
             <h2>Pause on the details.</h2>
           </div>
           <p>
-            Current app 0.4.0 captures from Android. No reconstructed marketing
-            interface or AI-generated screen text.
+            Current app {productStatus.app.version} captures from Android. No
+            reconstructed marketing interface or AI-generated screen text.
           </p>
         </div>
         <div className="contact-sheet__grid">

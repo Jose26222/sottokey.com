@@ -25,6 +25,41 @@ Never collapse these into one “current version”:
 The website source of truth is `src/data/product-status.ts`. Pages may format
 those values, but must not duplicate their own version strings.
 
+## Maintenance architecture
+
+Keep updates inside these boundaries:
+
+| Concern | Canonical file | Rule |
+|---|---|---|
+| App, model, release, and performance status | `src/data/product-status.ts` | Change facts here before changing copy |
+| Published device media and demo order | `productMedia`, `liveDemo`, and `productSurfaces` in `src/data/site.ts` | Components must not hard-code product image paths |
+| Raw and derived media provenance | `docs/ASSET-MANIFEST.md` | Record raw and WebP hashes together |
+| Phone presentation | `src/components/DeviceFrame.tsx` | Keep one hardware frame and the 1080:2340 screen contract |
+| Visual language and responsive behavior | `src/app/globals.css` | Reuse existing tokens and component classes before adding variants |
+| Automated release gates | `tests/visual.spec.ts` and `tests/accessibility.spec.ts` | Do not weaken a gate to make an update pass |
+
+The intended maintenance order is facts → captures → media registry → copy →
+tests → visual review → deployment. A page component should only compose these
+sources; it should not become another source of product truth.
+
+## Update scope
+
+Choose the smallest complete update:
+
+- **App UI only:** refresh every changed surface, app version, changelog, and
+  screenshots. Keep installed-model metrics unchanged.
+- **Model only:** refresh model identity, quality evidence, performance,
+  correction sequence, proof, and limitations. Keep unrelated UI captures.
+- **App and model together:** complete both checklists in one release. Never
+  publish a mixed set that makes old output appear to come from a new model.
+- **Copy only:** do not replace captures or metrics unless their evidence also
+  changed.
+
+Stable semantic asset names such as `host-keyboard-current.webp` are deliberate.
+Replace the file and its two hashes atomically, then update `productMedia` only
+if the role, filename, or alt text changed. Do not scatter versioned filenames
+through page components.
+
 ## Refresh procedure
 
 ### 1. Freeze source truth
@@ -62,7 +97,8 @@ those values, but must not duplicate their own version strings.
 
 ### 4. Sync product data
 
-- Update `liveDemo` and `productSurfaces` in `src/data/site.ts`.
+- Update `productMedia`, `liveDemo`, and `productSurfaces` in
+  `src/data/site.ts`.
 - Remove surfaces that do not have a current capture.
 - Update paragraph/selection behavior, visible rewrite modes, feature status,
   and known limitations from source truth.
@@ -87,6 +123,17 @@ Review full-page desktop and mobile screenshots. Reject the update if a phone
 is cropped, any screenshot text is clipped by website framing, the aspect ratio
 changes, old UI remains visible, or app/model dates conflict.
 
+The automated media gate requires every published product screen to:
+
+- load as WebP,
+- preserve the exact 1080×2340 device dimensions,
+- remain at or below 160 KB,
+- stay reachable from the central `productMedia` registry.
+
+Passing automation is necessary but not sufficient. Inspect the screenshots at
+actual desktop and mobile viewport sizes for legibility, hierarchy, repetition,
+and authentic Android geometry.
+
 ### 6. Deploy
 
 - Create a dry-run file/checksum manifest.
@@ -109,3 +156,27 @@ A model may be called current only after it has:
 - synchronized proof, download, press, and changelog copy.
 
 Until then, show it only as **in evaluation**.
+
+## Deferred interactive hero
+
+The current static hero is the quality baseline. Build the interactive version
+only after the app UI and rewrite contract are stable enough to capture a
+coherent final sequence.
+
+Implementation contract:
+
+1. Reuse `productMedia` and `liveDemo`; do not create a second set of screens.
+2. Model the experience as explicit states such as Write → Choose → Review →
+   Accept. Publish only states supported by clean same-version captures.
+3. Make controls real buttons with keyboard focus, pressed state, descriptive
+   labels, and a usable no-JavaScript first frame.
+4. Keep the default hero image eager and small; lazy-load or preload only the
+   next state so interaction does not damage first paint.
+5. Never reconstruct the keyboard in HTML, generate readable UI, or imply that
+   arbitrary visitor text is processed.
+6. Keep the static hero available as a rollback path and for reduced-motion
+   users.
+7. Re-run the complete quality, accessibility, mobile, and deployment gates.
+
+The interactive hero is an enhancement, not permission to trade authenticity,
+speed, readability, or maintainability for novelty.

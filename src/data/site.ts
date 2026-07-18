@@ -8,6 +8,33 @@ export const navItems = [
   { href: "/support", label: "Support" },
 ];
 
+export const productMedia = {
+  keyboard: {
+    src: "/product/host-keyboard-current.webp",
+    alt: "Current SottoKey keyboard inside the Android Contacts app",
+  },
+  rewriteIdle: {
+    src: "/product/live-rewrite-idle.webp",
+    alt: "Current SottoKey three-mode rewrite panel on Android",
+  },
+  rewriteDiff: {
+    src: "/product/live-rewrite-diff.webp",
+    alt: "Current SottoKey rewrite panel showing a real device diff",
+  },
+  textEditing: {
+    src: "/product/host-text-editing-current.webp",
+    alt: "Current SottoKey text editing controls inside Android Contacts",
+  },
+  tools: {
+    src: "/product/host-tools-current.webp",
+    alt: "Current SottoKey expanded toolbar inside Android Contacts",
+  },
+  emoji: {
+    src: "/product/host-emoji-current.webp",
+    alt: "Current SottoKey local emoji panel",
+  },
+} as const;
+
 export const liveDemo = {
   input: "teh meeting got moved to 3pm",
   output: "The meeting got moved to 3pm.",
@@ -18,60 +45,51 @@ export const liveDemo = {
       id: "write",
       label: "Write",
       kicker: "Write in the app you already use.",
-      src: "/product/host-keyboard-current.webp",
-      alt: "Current SottoKey keyboard open inside the Android Contacts app",
+      ...productMedia.keyboard,
     },
     {
       id: "choose",
       label: "Choose",
       kicker: "Pick Fix, Pro, or Casual.",
-      src: "/product/live-rewrite-idle.webp",
-      alt: "SottoKey's current three-mode rewrite panel on Android",
+      ...productMedia.rewriteIdle,
     },
     {
       id: "review",
       label: "Review",
       kicker: "Inspect the real insertion and deletion.",
-      src: "/product/live-rewrite-diff.webp",
-      alt: "SottoKey showing the installed model's real correction as a visible diff",
+      ...productMedia.rewriteDiff,
     },
   ],
 } as const;
 
 export const productSurfaces = [
   {
-    src: "/product/host-keyboard-current.webp",
-    alt: "Current SottoKey keyboard inside the Android Contacts app",
+    ...productMedia.keyboard,
     label: "Write in any app",
     detail: "The current keyboard, toolbar, and host-app integration on Android.",
   },
   {
-    src: "/product/live-rewrite-idle.webp",
-    alt: "Current SottoKey three-mode rewrite panel on Android",
+    ...productMedia.rewriteIdle,
     label: "Choose the rewrite",
     detail: "Fix, Professional, and Casual are the three current rewrite modes.",
   },
   {
-    src: "/product/live-rewrite-diff.webp",
-    alt: "Current SottoKey rewrite panel showing a real device diff",
+    ...productMedia.rewriteDiff,
     label: "Review a real diff",
     detail: "A measured installed-model result, captured directly from the phone.",
   },
   {
-    src: "/product/host-text-editing-current.webp",
-    alt: "Current SottoKey text editing controls inside Android Contacts",
+    ...productMedia.textEditing,
     label: "Edit precisely",
     detail: "Selection, navigation, copy, paste, and delete stay within reach.",
   },
   {
-    src: "/product/host-tools-current.webp",
-    alt: "Current SottoKey expanded toolbar inside Android Contacts",
+    ...productMedia.tools,
     label: "Tools, one tap away",
     detail: "Rewrite, editing, clips, undo, and redo share one compact toolbar.",
   },
   {
-    src: "/product/host-emoji-current.webp",
-    alt: "Current SottoKey local emoji panel",
+    ...productMedia.emoji,
     label: "Emoji, local",
     detail: "Current recents, categories, and keyboard return controls.",
   },

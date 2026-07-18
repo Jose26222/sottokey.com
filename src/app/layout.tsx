@@ -5,6 +5,7 @@ import "@fontsource/ibm-plex-mono/500.css";
 import "./globals.css";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
+import { productMedia, productStatus } from "@/data/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sottokey.com"),
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
       "A private Android keyboard with on-device rewriting and no internet permission.",
     images: [
       {
-        url: "/product/live-rewrite-diff.webp",
+        url: productMedia.rewriteDiff.src,
         width: 1080,
         height: 2340,
         alt: "SottoKey private Android keyboard product",
@@ -44,7 +45,7 @@ export const metadata: Metadata = {
     title: "SottoKey — Private AI Keyboard",
     description:
       "On-device rewriting. Visible diffs. No internet permission.",
-    images: ["/product/live-rewrite-diff.webp"],
+    images: [productMedia.rewriteDiff.src],
   },
   icons: {
     icon: "/icon.svg",
@@ -70,7 +71,7 @@ export default function RootLayout({
     description:
       "A private Android keyboard with on-device rewriting, visible diffs, and no internet permission.",
     url: "https://sottokey.com",
-    softwareVersion: "0.4.0",
+    softwareVersion: productStatus.app.version,
   };
 
   return (

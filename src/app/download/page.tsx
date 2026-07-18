@@ -54,7 +54,7 @@ export default function DownloadPage() {
             Preparing for Play.
           </>
         }
-        body="SottoKey 0.4.0 is running on physical Android hardware. The installed v3 Q8 model remains the measured evidence package while its replacement is evaluated; public Play availability still follows release packaging and closed-track review."
+        body={`SottoKey ${productStatus.app.version} is running on physical Android hardware. The installed v3 Q8 model remains the measured evidence package while its replacement is evaluated; public Play availability still follows release packaging and closed-track review.`}
         aside={
           <div className="availability-pill">
             <span />

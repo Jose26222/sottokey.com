@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { productMedia } from "../src/data/site";
 
 async function warmLazyMedia(page: import("@playwright/test").Page) {
   await page.evaluate(async () => {
@@ -59,6 +60,7 @@ for (const route of routes) {
 
 test("guided demo switches through live device states", async ({ page }) => {
   await page.goto("/demo");
+  const guidedDemo = page.locator(".guided-demo").first();
   const sequence = page.getByRole("group", { name: "Correction sequence" });
   const review = sequence
     .getByRole("button")
@@ -66,8 +68,8 @@ test("guided demo switches through live device states", async ({ page }) => {
   await review.click();
   await expect(review).toHaveAttribute("aria-pressed", "true");
   await expect(
-    page.getByRole("img", {
-      name: "SottoKey showing the installed model's real correction as a visible diff",
+    guidedDemo.getByRole("img", {
+      name: productMedia.rewriteDiff.alt,
     }),
   ).toBeVisible();
 
@@ -76,6 +78,37 @@ test("guided demo switches through live device states", async ({ page }) => {
   ).toBeVisible();
   await expect(page.getByText("A replacement model is still in evaluation.")).toBeVisible(
   );
+});
+
+test("published product media preserves device geometry and budget", async ({
+  page,
+  request,
+}) => {
+  await page.goto("/");
+
+  for (const media of Object.values(productMedia)) {
+    const response = await request.get(media.src);
+    expect(response.ok(), `${media.src} should load`).toBe(true);
+    expect(response.headers()["content-type"]).toContain("image/webp");
+    expect((await response.body()).byteLength).toBeLessThanOrEqual(160_000);
+
+    const dimensions = await page.evaluate(
+      (src) =>
+        new Promise<{ width: number; height: number }>((resolve, reject) => {
+          const image = new Image();
+          image.onload = () =>
+            resolve({
+              width: image.naturalWidth,
+              height: image.naturalHeight,
+            });
+          image.onerror = () => reject(new Error(`Unable to load ${src}`));
+          image.src = src;
+        }),
+      media.src,
+    );
+
+    expect(dimensions).toEqual({ width: 1080, height: 2340 });
+  }
 });
 
 test("mobile navigation exposes every core route", async ({ page }, testInfo) => {

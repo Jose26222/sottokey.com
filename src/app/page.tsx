@@ -13,6 +13,7 @@ import { ProductFilm } from "@/components/ProductFilm";
 import { ProofRail } from "@/components/ProofRail";
 import {
   featureGroups,
+  productMedia,
   productStatus,
   releaseFacts,
 } from "@/data/site";
@@ -50,8 +51,8 @@ export default function Home() {
               Real Android screen · app {productStatus.app.version}
             </div>
             <DeviceFrame
-              src="/product/host-keyboard-current.webp"
-              alt="Current SottoKey keyboard inside the Android Contacts app"
+              src={productMedia.keyboard.src}
+              alt={productMedia.keyboard.alt}
               className="home-hero__device"
               priority
             />
