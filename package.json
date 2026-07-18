@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "start:test": "rm -rf .next/standalone/public .next/standalone/.next/static && cp -r public .next/standalone/public && mkdir -p .next/standalone/.next && cp -r .next/static .next/standalone/.next/static && HOSTNAME=127.0.0.1 PORT=3100 node .next/standalone/server.js",
+    "build": "next build && rm -rf dist && mv out dist",
+    "start": "node scripts/serve-static.mjs dist",
+    "start:test": "HOSTNAME=127.0.0.1 PORT=3100 node scripts/serve-static.mjs dist",
     "lint": "eslint .",
     "pretest": "npm run build",
     "test": "playwright test",
