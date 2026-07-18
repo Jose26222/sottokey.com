@@ -27,18 +27,19 @@ export default function Home() {
           <div className="home-hero__content">
             <p className="eyebrow">A KEYBOARD HAS NO BUSINESS BEING ONLINE</p>
             <h1>
-              If you&apos;re not paying,
+              If you&apos;re not paying{" "}
               <br />
-              you&apos;re the product.
-              <span>
+              for the product,{" "}
+              <br />
+              you&apos;re the product.{" "}
+              <span className="home-hero__punchline">
                 We&apos;d rather take a few bucks once than your privacy forever.
               </span>
             </h1>
             <p className="home-hero__lede">
-              No ads. No account. No analytics. No internet permission at
-              all—so there is nothing to opt out of and nothing to take on
-              trust. SottoKey fixes grammar and tone on your phone, in airplane
-              mode.
+              You don&apos;t have to sacrifice functionality for privacy. SottoKey
+              fixes grammar and tone directly on your phone—even in airplane
+              mode. No ads. No account. No analytics. No internet permission.
             </p>
             <div className="button-row">
               <Link href="/proof" className="button button--light">
