@@ -51,7 +51,7 @@ placeholder instead of inventing a destination.
 
 ## Production pipeline
 
-The GitHub repository is connected to the `sottokey-com` Worker through
+The GitHub repository is connected to the `sottokey` Worker through
 Cloudflare Workers Builds.
 
 - Production branch: `main`
