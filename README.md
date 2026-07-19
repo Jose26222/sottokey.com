@@ -14,6 +14,7 @@ npm run dev
 ```bash
 npm run lint
 npm run typecheck
+npm run check:vinext
 npm run build
 npm test
 ```
@@ -32,7 +33,7 @@ horizontal overflow, and produces visual-review captures in
 - App/model/site synchronization: `docs/PRODUCT-UPDATE-RUNBOOK.md`
 - Official competitive privacy research:
   `docs/COMPETITIVE-PRIVACY-RESEARCH.md`
-- Deployment binding: `.openai/hosting.json`
+- Cloudflare deployment configuration: `wrangler.jsonc`
 
 `docs/PRODUCT-UPDATE-RUNBOOK.md` also defines the central media registry,
 same-version capture policy, automated image budgets, and the deferred
@@ -47,3 +48,17 @@ Google Play availability is also centralized in
 `productStatus.googlePlay`. Leave its URL null until the stakeholder supplies
 the verified public listing; the site will render an explicit unavailable
 placeholder instead of inventing a destination.
+
+## Production pipeline
+
+The GitHub repository is connected to the `sottokey-com` Worker through
+Cloudflare Workers Builds.
+
+- Production branch: `main`
+- Build command: `npm run build`
+- Deploy command: `npm run deploy`
+- Non-production deploy command:
+  `npx wrangler versions upload --config dist/server/wrangler.json`
+
+Every push to `main` deploys the active production version. Other branches
+create preview versions without moving production traffic.

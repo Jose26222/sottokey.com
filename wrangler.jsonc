@@ -1,0 +1,27 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "sottokey-com",
+  "compatibility_date": "2026-07-19",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "main": "vinext/server/fetch-handler",
+  "assets": {
+    "directory": "dist/client",
+    "not_found_handling": "none",
+    "binding": "ASSETS"
+  },
+  "routes": [
+    {
+      "pattern": "sottokey.com",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.sottokey.com",
+      "custom_domain": true
+    }
+  ],
+  "cache": {
+    "enabled": true
+  }
+}

@@ -5,9 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vinext dev",
-    "build": "vinext build && mkdir -p dist/.openai && cp .openai/hosting.json dist/.openai/hosting.json",
+    "build": "vinext build",
     "start": "vinext start",
+    "start:cloudflare": "wrangler dev --config dist/server/wrangler.json",
     "start:test": "HOST=127.0.0.1 PORT=3100 vinext start",
+    "deploy": "wrangler deploy --config dist/server/wrangler.json",
+    "check:vinext": "vinext check",
     "lint": "eslint .",
     "pretest": "npm run build",
     "test": "playwright test",
@@ -23,11 +26,13 @@
     "react-dom": "19.2.7"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "1.45.1",
     "@axe-core/playwright": "4.12.1",
     "@playwright/test": "1.61.1",
     "@types/node": "24.10.1",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
+    "@vinext/cloudflare": "1.0.0-beta.2",
     "@vitejs/plugin-react": "^6.0.3",
     "@vitejs/plugin-rsc": "^0.5.28",
     "eslint": "9.39.2",
@@ -35,7 +40,8 @@
     "react-server-dom-webpack": "^19.2.7",
     "typescript": "5.9.3",
     "vinext": "^1.0.0-beta.2",
-    "vite": "^8.1.5"
+    "vite": "^8.1.5",
+    "wrangler": "4.112.0"
   },
   "overrides": {
     "postcss": "8.5.10"
