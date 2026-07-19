@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { BrandMark } from "./BrandMark";
+import { SottoLabsMark } from "./SottoLabsMark";
 
 const footerGroups = [
   {
@@ -24,6 +25,8 @@ const footerGroups = [
   {
     title: "Company",
     links: [
+      { href: "https://sottolabs.ai", label: "Sotto Labs" },
+      { href: "https://meetnebula.org", label: "Nebula" },
       { href: "/support", label: "Support" },
       { href: "/press", label: "Press kit" },
     ],
@@ -35,7 +38,13 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="site-footer__top">
         <div className="site-footer__statement">
-          <BrandMark inverse />
+          <a href="https://sottolabs.ai" aria-label="Sotto Labs home">
+            <SottoLabsMark inverse />
+          </a>
+          <div className="site-footer__product">
+            <span>A Sotto Labs product</span>
+            <BrandMark inverse />
+          </div>
           <p>
             The quiet keyboard.
             <br />
@@ -56,7 +65,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="site-footer__bottom">
-        <p>© 2026 SottoKey. A private keyboard for Android.</p>
+        <p>© 2026 Sotto Labs. SottoKey is our private Android keyboard.</p>
         <Link href="/proof">
           Inspect the proof <ArrowUpRight aria-hidden="true" />
         </Link>

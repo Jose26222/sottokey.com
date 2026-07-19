@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { navItems } from "@/data/site";
 import { BrandMark } from "./BrandMark";
+import { SottoLabsMark } from "./SottoLabsMark";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -27,14 +28,24 @@ export function SiteHeader() {
   return (
     <header className={`site-header ${scrolled ? "site-header--scrolled" : ""}`}>
       <div className="site-header__inner">
-        <Link
-          href="/"
-          className="site-header__brand"
-          aria-label="SottoKey home"
-          onClick={() => setOpen(false)}
-        >
-          <BrandMark inverse />
-        </Link>
+        <div className="site-header__identity">
+          <a
+            href="https://sottolabs.ai"
+            className="site-header__master"
+            aria-label="Sotto Labs home"
+          >
+            <SottoLabsMark inverse />
+          </a>
+          <span className="site-header__divider" aria-hidden="true" />
+          <Link
+            href="/"
+            className="site-header__brand"
+            aria-label="SottoKey home"
+            onClick={() => setOpen(false)}
+          >
+            <BrandMark inverse />
+          </Link>
+        </div>
         <nav className="site-nav" aria-label="Primary navigation">
           {navItems.map((item) => (
             <Link key={item.href} href={item.href}>
@@ -80,6 +91,10 @@ export function SiteHeader() {
           >
             Google Play status
           </Link>
+          <a href="https://sottolabs.ai" onClick={() => setOpen(false)}>
+            <span>06</span>
+            Sotto Labs
+          </a>
         </nav>
       </div>
     </header>

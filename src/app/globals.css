@@ -319,6 +319,37 @@ p {
   letter-spacing: -0.045em;
 }
 
+.master-brand {
+  display: inline-flex;
+  gap: 11px;
+  align-items: center;
+  color: var(--text-light);
+  font-size: 18px;
+  font-weight: 760;
+  letter-spacing: -0.055em;
+  white-space: nowrap;
+}
+
+.master-brand--inverse {
+  color: var(--text-dark);
+}
+
+.master-brand svg {
+  width: 32px;
+  height: 32px;
+  overflow: visible;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 4.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.master-brand b {
+  color: var(--ink-400);
+  font-weight: 500;
+}
+
 /* Header */
 
 .site-header {
@@ -356,6 +387,23 @@ p {
 
 .site-header__brand {
   width: fit-content;
+}
+
+.site-header__identity {
+  display: flex;
+  width: fit-content;
+  gap: 14px;
+  align-items: center;
+}
+
+.site-header__master {
+  display: inline-flex;
+}
+
+.site-header__divider {
+  width: 1px;
+  height: 30px;
+  background: var(--hairline-dark);
 }
 
 .site-nav {
@@ -508,6 +556,25 @@ p {
   font-weight: 500;
   letter-spacing: -0.045em;
   line-height: 1.06;
+}
+
+.site-footer__product {
+  display: flex;
+  margin-top: 42px;
+  gap: 14px;
+  align-items: center;
+}
+
+.site-footer__product > span {
+  color: var(--muted-dark);
+  font-family: "IBM Plex Mono Variable", monospace;
+  font-size: 10px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.site-footer__product .brand-mark__symbol {
+  box-shadow: none;
 }
 
 .site-footer__links {
@@ -4096,6 +4163,39 @@ p {
   .licenses > article > div {
     grid-template-columns: 1fr;
     gap: 22px;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-header__identity {
+    gap: 9px;
+  }
+
+  .site-header__divider {
+    height: 24px;
+  }
+
+  .master-brand {
+    gap: 7px;
+    font-size: 14px;
+  }
+
+  .master-brand svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  .site-header__identity .brand-mark__symbol {
+    width: 30px;
+  }
+
+  .site-header__identity .brand-mark__word {
+    font-size: 14px;
+  }
+
+  .site-footer__product {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
 
