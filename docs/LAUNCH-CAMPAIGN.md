@@ -1,7 +1,14 @@
 # SottoKey launch campaign
 
 Drafted: 2026-07-18
-Status: plan — not executed, not approved
+Status: historical research — superseded, not executed
+
+The current launch authority is the Android release contract plus
+`/code/projects/sottolabs-strategy/products/SOTTOKEY.md`. SottoKey is now one
+freemium Play listing: Fix, Casual, Professional, and five templates are free;
+the remaining modes, both translation directions, and the extended template
+limit are the one-time premium unlock. Paid-upfront and directional-free
+recommendations below are retained only as historical research.
 
 Evidence basis: two research passes (positioning + Play/ASO). Claims below are
 marked **[E]** where grounded in verified primary sources and **[J]** where they

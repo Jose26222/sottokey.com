@@ -134,7 +134,7 @@ export const featureGroups = [
   },
   {
     eyebrow: "04 / PROTECT",
-    title: "No route to the internet.",
+    title: "No direct app network permission.",
     body:
       "The Android production build requests no INTERNET permission. There is no account, telemetry SDK, cloud model, or remote logging. Password-class fields disable suggestions, learning, rewriting, and clipboard capture.",
     points: [
@@ -150,12 +150,12 @@ export const faqItems = [
   {
     question: "Does SottoKey send what I type to a server?",
     answer:
-      "It can't. The app has no INTERNET permission, so Android gives it no way to open a connection, and the rewrite model lives on the phone. Don't take our word for it—check the permission list yourself.",
+      "No. The release app has no INTERNET permission, so it cannot open a direct internet socket, and the rewrite model lives on the phone. Google Play Billing uses the Play Store service and receives no typed content. Don't take our word for it—check the permission list yourself.",
   },
   {
     question: "Why does Android show a keyboard warning?",
     answer:
-      "Android shows the same generic warning for every third-party keyboard, whatever its actual permissions. SottoKey's answer is structural: no internet permission, so your keystrokes have nowhere to go. Check the permission list yourself.",
+      "Android shows the same generic warning for every third-party keyboard, whatever its actual permissions. SottoKey's answer is structural: the app has no INTERNET permission, local models need no server, and typed text is not supplied to Billing. Check the permission list yourself.",
   },
   {
     question: "Can the model make mistakes?",

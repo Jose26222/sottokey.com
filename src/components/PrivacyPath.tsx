@@ -40,9 +40,9 @@ export function PrivacyPath() {
         </div>
 
         <div className="privacy-path__blocked">
-          <span>NO NETWORK PATH</span>
+          <span>NO DIRECT APP NETWORK</span>
           <WifiOff aria-hidden="true" />
-          <strong>Blocked by the app manifest</strong>
+          <strong>Direct sockets blocked by the manifest</strong>
           <small>INTERNET permission absent</small>
         </div>
       </div>

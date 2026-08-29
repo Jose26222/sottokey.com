@@ -51,6 +51,25 @@ export default function LicensesPage() {
         <article>
           <span>03</span>
           <div>
+            <h2>FrequencyWords lexicon content</h2>
+            <p>
+              The bundled English and Spanish lexicons are filtered derivatives
+              of hermitdave/FrequencyWords generated content pinned at commit{" "}
+              <code>525f9b560de45753a5ea01069454e72e9aa541c6</code>. Generated
+              content is CC BY-SA 4.0; repository code is MIT. SottoKey filters
+              entries, adds a documented everyday-word set, log-scales counts,
+              sorts output, and marks terms that must never be suggested.
+            </p>
+            <p>
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/">
+                Creative Commons Attribution-ShareAlike 4.0
+              </a>
+            </p>
+          </div>
+        </article>
+        <article>
+          <span>04</span>
+          <div>
             <h2>Website typography</h2>
             <p>
               Manrope and IBM Plex Mono are self-hosted by this website under
@@ -60,7 +79,7 @@ export default function LicensesPage() {
           </div>
         </article>
         <article>
-          <span>04</span>
+          <span>05</span>
           <div>
             <h2>Interface icons</h2>
             <p>
@@ -71,7 +90,7 @@ export default function LicensesPage() {
           </div>
         </article>
         <article>
-          <span>05</span>
+          <span>06</span>
           <div>
             <h2>Studio media</h2>
             <p>

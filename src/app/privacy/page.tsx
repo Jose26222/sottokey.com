@@ -23,15 +23,15 @@ export const metadata: Metadata = {
 const guarantees = [
   {
     icon: Network,
-    title: "No route to the internet",
+    title: "No direct app network permission",
     copy:
-      "The Android production manifest does not request INTERNET. The keyboard contains no server client, analytics SDK, advertising SDK, remote logging, or background update check.",
+      "The Android production manifest does not request INTERNET. The keyboard contains no analytics, advertising, remote-logging, or cloud-model client. Google Play Billing uses the Play Store service rather than direct app sockets.",
   },
   {
     icon: EyeOff,
     title: "Temporary text stays temporary",
     copy:
-      "The composing buffer lives in memory for the current word. A rewrite target lives for one request. SottoKey does not automatically write typed sentences to disk.",
+      "The composing buffer and bounded next-word context live in memory for the active suggestion. A rewrite target lives for one request. SottoKey does not automatically write typed sentences to disk.",
   },
   {
     icon: KeyRound,
@@ -43,7 +43,7 @@ const guarantees = [
     icon: Database,
     title: "Local data has controls",
     copy:
-      "Preferences, learned words, touch offsets, local latency metrics, and explicitly saved snippets live in app-private storage and can be removed from settings.",
+      "Preferences, learned words and word pairs, touch offsets, local latency metrics, Billing ownership cache, and explicitly saved content live in app-private storage and have deletion controls.",
   },
   {
     icon: CloudOff,
@@ -71,11 +71,11 @@ export default function PrivacyPage() {
             Not a promise in small type.
           </>
         }
-        body="SottoKey has no network path for what you type. Like every keyboard, it exchanges text with the app you are typing in; it does not send that text off the device. This page explains what the keyboard processes, stores locally, and disables."
+        body="SottoKey has no direct app network permission for what you type. Like every keyboard, it exchanges text with the app you are typing in; its local models do not send that text to a SottoKey server. This page explains what the keyboard processes, stores locally, and disables."
         aside={
           <div className="hero-proof-note">
             <ShieldCheck aria-hidden="true" />
-            <span>Android app: no off-device network path</span>
+            <span>Android app: INTERNET permission absent</span>
           </div>
         }
       />
@@ -128,6 +128,13 @@ export default function PrivacyPage() {
             marks the changes, and waits for you to choose Keep original or
             Accept edit.
           </p>
+          <p>
+            For automatic next-word suggestions, SottoKey reads at most the
+            last 1,024 characters before the cursor plus the current composing
+            prefix. That bounded context is processed only by the selected
+            on-device English or Spanish prediction model and is not persisted,
+            added to training data, or supplied to Google Play Billing.
+          </p>
         </article>
 
         <article>
@@ -135,14 +142,23 @@ export default function PrivacyPage() {
           <h2>Only the pieces that make a keyboard yours.</h2>
           <ul className="policy-list">
             <li>Theme, size, language, and behavior preferences.</li>
-            <li>Personal dictionary entries and learned word frequencies.</li>
+            <li>Encrypted personal dictionary words and learned word pairs.</li>
             <li>Per-key touch offset averages, without text.</li>
             <li>Latency, backend, model version, and outcome codes—never text.</li>
-            <li>Clipboard snippets that you explicitly save.</li>
+            <li>Encrypted clipboard snippets and email addresses you explicitly save.</li>
+            <li>Encrypted email templates you explicitly create or save.</li>
+            <li>
+              Verified Play product IDs and the last ownership-query time in a
+              tamper-evident local Billing cache.
+            </li>
           </ul>
           <p>
             Temporary clipboard history stays in memory, is capped, expires,
             skips sensitive clips, and can be disabled.
+          </p>
+          <p>
+            Google Play handles purchase and product data through the Play
+            Store service. SottoKey supplies no typed content to Billing.
           </p>
         </article>
 
@@ -178,9 +194,15 @@ export default function PrivacyPage() {
           <p className="eyebrow">DELETE YOUR DATA</p>
           <h2>Clear it locally, or uninstall completely.</h2>
           <p>
-            Settings provides controls for learned words, saved snippets,
-            clipboard history, and local keyboard data. Uninstalling SottoKey
-            removes its app-private data because no account exists elsewhere.
+            Settings provides controls for learned words, temporary clipboard
+            history, saved snippets, saved email addresses, email templates,
+            and adaptive touch learning. Uninstalling SottoKey removes its
+            app-private data because no account exists elsewhere.
+          </p>
+          <p>
+            Screen capture follows Android defaults. Screenshots are allowed
+            for reporting visual issues, so avoid capturing private text you
+            do not intend to retain or share.
           </p>
           <Link href="/support">
             See deletion instructions <ArrowRight aria-hidden="true" />
