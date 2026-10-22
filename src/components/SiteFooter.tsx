@@ -16,7 +16,7 @@ const footerGroups = [
   {
     title: "Trust",
     links: [
-      { href: "/privacy", label: "Privacy" },
+      { href: "https://sottokey.com/legal/privacy-android/", label: "Privacy" },
       { href: "/proof", label: "Technical proof" },
       { href: "/legal/licenses", label: "Licenses" },
       { href: "/legal/terms", label: "Terms" },

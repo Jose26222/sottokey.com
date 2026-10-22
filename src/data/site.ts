@@ -3,7 +3,7 @@ import { productStatus } from "./product-status";
 export const navItems = [
   { href: "/demo", label: "Demo" },
   { href: "/features", label: "Features" },
-  { href: "/privacy", label: "Privacy" },
+  { href: "https://sottokey.com/legal/privacy-android/", label: "Privacy" },
   { href: "/proof", label: "Proof" },
   { href: "/support", label: "Support" },
 ];
